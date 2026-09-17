@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://legitpdfufile-wq.github.io/nova-web/sitemap.xml
