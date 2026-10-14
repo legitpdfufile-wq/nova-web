@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Signal Room is a private, local-first idea-to-brief tool built as a public Studio Brain demo.">
+  <title>Signal Room — Make the first move clear</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Signal Room home"><span class="brand-mark">S</span><span>SIGNAL ROOM</span></a>
+    <div class="top-note"><span class="live-dot"></span> interactive public demo</div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="eyebrow">BUILT THROUGH STUDIO BRAIN</div>
+      <h1>Turn a half-formed idea into a <em>clear first move.</em></h1>
+      <p class="hero-copy">Signal Room is a small, local-first briefing tool. Nothing is sent anywhere: your work stays in this browser until you export it.</p>
+      <div class="hero-actions"><a class="primary" href="#workspace">Try the live demo <span>↓</span></a><a class="quiet" href="#truth">What this proves</a></div>
+      <div class="truth-strip"><span>NO SIGNUP</span><span>LOCAL BROWSER STORAGE</span><span>EXPORTABLE BRIEF</span></div>
+    </section>
+
+    <section class="workspace wrap" id="workspace" aria-labelledby="workspace-title">
+      <div class="section-head"><div><p class="eyebrow">THE WORKBENCH</p><h2 id="workspace-title">Give the idea some shape.</h2></div><button class="text-button" id="reset" type="button">Start fresh</button></div>
+      <div class="progress" aria-label="Brief completeness"><span id="progressBar"></span></div>
+      <div class="app-grid">
+        <form id="briefForm" class="brief-form">
+          <label>What are you trying to make?
+            <input id="project" maxlength="90" placeholder="A place for neighbors to swap tools" autocomplete="off">
+          </label>
+          <label>Who is it for?
+            <input id="audience" maxlength="90" placeholder="Apartment dwellers who need things occasionally" autocomplete="off">
+          </label>
+          <label>What should happen after someone finds it?
+            <textarea id="outcome" maxlength="280" placeholder="They can understand it fast and take one simple next step."></textarea>
+          </label>
+          <label>The line that makes it worth opening
+            <input id="spark" maxlength="110" placeholder="Borrow better. Buy less. Meet your block." autocomplete="off">
+          </label>
+          <div class="format-row" role="group" aria-label="Choose a first release">
+            <button class="format active" type="button" data-format="A useful website"><span>01</span>A useful website</button>
+            <button class="format" type="button" data-format="A small tool"><span>02</span>A small tool</button>
+            <button class="format" type="button" data-format="A launch page"><span>03</span>A launch page</button>
+          </div>
+        </form>
+
+        <aside class="signal-card" aria-live="polite">
+          <div class="card-top"><span class="pulse"></span><span id="signalState">WAITING FOR SIGNAL</span></div>
+          <p class="mini-label">YOUR FIRST RELEASE</p>
+          <h3 id="releaseTitle">Name the thing.</h3>
+          <p id="releasePitch" class="release-pitch">A clear sentence will show up here when you give the idea a little shape.</p>
+          <div class="signal-lines">
+            <div><span>Format</span><strong id="formatOut">A useful website</strong></div>
+            <div><span>First move</span><strong id="firstMove">Start with the people who need it most.</strong></div>
+          </div>
+          <button class="export" id="export" type="button" disabled>Export the brief <span>↗</span></button>
+          <p id="savedMessage" class="saved-message">Saved only in this browser.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="truth wrap" id="truth">
+      <p class="eyebrow">THE HONEST VERSION</p>
+      <div class="truth-grid"><h2>This is a real working browser tool—not proof that a studio can magically ship anything without judgment.</h2><div><p>It shows the standard: take a real brief, make a usable thing, test it, and be honest about what is and is not finished.</p><p>Signal Room stores drafts in your browser and exports a plain-text brief. It has no account, no tracking claim, and no pretend customer stories.</p></div></div>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>Signal Room / Studio Brain public proof</span><span>Made to be tried, not just described.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
