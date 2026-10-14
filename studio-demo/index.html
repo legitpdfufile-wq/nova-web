@@ -1,64 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Try the Studio Brain sample dog website: filters, favorites, details, FAQs and a browser-only sample application. All dogs and testimonials are fictional.">
-  <title>Studio Brain sample | Buried Bonds interactive demo</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buried Bonds Companion Dogs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
 </head>
 <body>
-  <aside class="demo-banner" aria-label="Sample website notice"><strong>STUDIO BRAIN SAMPLE</strong><span>Fictional dogs, claims and testimonials. No real applications. Use sample information only.</span><a href="walkthrough.webm">Watch the 29-second walkthrough →</a></aside>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Buried Bonds home"><span class="brand-mark">BB</span><span>Buried Bonds<small>Companion Dogs</small></span></a>
-    <nav aria-label="Main navigation"><a href="#companions">Companions</a><a href="#promise">Our promise</a><a href="#process">Adoption</a><a href="#faq">FAQ</a></nav>
-    <a class="button button-small" href="#apply">Begin an application</a>
-  </header>
-
-  <main id="home">
     <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Family raised · Health guaranteed · Lifetime supported</p>
-        <h1>Some bonds are found.<br><em>Ours are raised.</em></h1>
-        <p class="hero-lede">Thoughtfully raised companions prepared for real homes, real children, and the whole life waiting beyond our gate.</p>
-        <div class="hero-actions"><a class="button" href="#companions">Meet the dogs</a><a class="text-link" href="#promise">See how we raise them <span>→</span></a></div>
-        <dl class="proof-strip"><div><dt>10 years</dt><dd>family raised</dd></div><div><dt>2-year</dt><dd>health promise</dd></div><div><dt>Always</dt><dd>lifetime support</dd></div></dl>
-      </div>
-      <div class="hero-art" role="img" aria-label="A cinematic portrait of a loyal dog watching the sunset beside its family">
-        <div class="sun"></div><div class="ridge ridge-back"></div><div class="ridge"></div>
-        <svg viewBox="0 0 520 520" aria-hidden="true"><path class="dog-shape" d="M161 407c4-72 7-132 58-165-22-19-32-46-24-72l32-79 51 54c26-8 54-4 76 9l66-40-7 84c17 24 22 52 14 82-8 31-27 53-52 68l21 59H161Z"/><circle cx="331" cy="203" r="8"/><path d="M362 240q24 18 50 2" fill="none" stroke="#172624" stroke-width="8" stroke-linecap="round"/></svg>
-        <p class="art-caption"><span>Raised under our roof</span>Ready for yours</p>
-      </div>
+        <div class="hero-copy">
+            <p class="sample-notice">Interactive sample • fictional dog profiles</p>
+            <h1>A little closer to your companion.</h1>
+            <p>Explore the profiles. Save a favorite. See how a thoughtful first inquiry could feel.</p>
+            <a class="hero-cta" href="#meet-the-dogs">Meet the sample dogs <span aria-hidden="true">→</span></a>
+        </div>
+        <svg class="hero-art" viewBox="0 0 100 100" role="img" aria-label="AI-generated golden retriever in a sunlit meadow; demonstration artwork">
+            <image href="assets/input-8dc17eae1e81dd925185e196deed43bde1d574a2c5dc5df65369ebcaffe85199.png" width="100" height="100" preserveAspectRatio="xMidYMid slice" />
+        </svg>
     </section>
-
-    <section class="section companions" id="companions">
-      <div class="section-heading"><div><p class="eyebrow">Available companions</p><h2>Meet your next shadow.</h2></div><p>Every dog below has a distinct temperament. Filter by the life you live—not just the look you love.</p></div>
-      <form id="filter-form" class="filters" aria-label="Filter available dogs">
-        <label>Breed<select id="breed" name="breed"><option value="all">All breeds</option></select></label>
-        <label>Age<select id="age" name="age"><option value="all">Any age</option><option value="puppy">Puppy</option><option value="young">Young</option></select></label>
-        <label>Best fit<select id="fit" name="fit"><option value="all">Every lifestyle</option><option value="family">Family</option><option value="active">Active</option><option value="calm">Calm home</option></select></label>
-        <button class="button button-dark" type="submit">Show my matches</button>
-      </form>
-      <p id="result-count" class="result-count" aria-live="polite"></p>
-      <div id="dog-cards" class="dog-grid"></div>
+    <section class="available-dogs" id="meet-the-dogs" aria-label="Fictional dog profiles">
+        <select class="filter-breed" aria-label="Breed">
+            <option value="All">All</option>
+            <option value="Labrador">Labrador</option>
+            <option value="Golden Retriever">Golden Retriever</option>
+            <option value="Poodle">Poodle</option>
+        </select>
+        <button class="filter-apply">Apply</button>
+        <div class="card" data-dog-id="1" data-breed="Labrador">
+            <h2 class="card-title">Buddy</h2>
+            <p>Breed: Labrador</p>
+            <p>Age: 3 years</p>
+            <p class="profile-description">Fictional profile: a playful walking companion with a love of outdoor adventures. Not a dog offered for adoption.</p>
+            <button class="favorite-btn" data-dog-id="1">Favorite</button>
+        </div>
+        <div class="card" data-dog-id="2" data-breed="Golden Retriever">
+            <h2 class="card-title">Charlie</h2>
+            <p>Breed: Golden Retriever</p>
+            <p>Age: 2 years</p>
+            <p class="profile-description">Fictional profile: a sunny sidekick imagined for gentle walks and relaxed afternoons. Not an availability listing.</p>
+            <button class="favorite-btn" data-dog-id="2">Favorite</button>
+        </div>
+        <div class="card" data-dog-id="3" data-breed="Poodle">
+            <h2 class="card-title">Daisy</h2>
+            <p>Breed: Poodle</p>
+            <p>Age: 1 year</p>
+            <p class="profile-description">Fictional profile: a curious young companion imagined for games and learning. No real animal is represented.</p>
+            <button class="favorite-btn" data-dog-id="3">Favorite</button>
+        </div>
     </section>
-
-    <section class="section promise" id="promise">
-      <div><p class="eyebrow eyebrow-light">The Buried Bonds trust promise</p><h2>No mystery.<br>No disappearing act.</h2><p>Health records, temperament notes, and honest conversations come before a deposit. After pickup, we stay in your corner for the life of your dog.</p></div>
-      <div class="promise-grid"><article><b>01</b><h3>Health in writing</h3><p>Veterinary exam, age-appropriate care, records, and a clear two-year genetic health guarantee.</p></article><article><b>02</b><h3>Raised in real life</h3><p>Home sounds, varied surfaces, handling, people, rest, and age-appropriate confidence work.</p></article><article><b>03</b><h3>Matched, not moved</h3><p>We learn your household and help choose the temperament most likely to thrive there.</p></article><article><b>04</b><h3>Support stays open</h3><p>Questions after homecoming are expected. Our line stays open through every life stage.</p></article></div>
+    <section class="trust-health">
+        <h2>Good questions. Better beginnings.</h2>
+        <p>For a real adoption, ask the provider about veterinary records, health screening, daily care and the dog's needs. Request documents and discuss fit before making a commitment. This sample makes no health guarantees.</p>
     </section>
-
-    <section class="section process" id="process"><p class="eyebrow">The adoption path</p><h2>Four honest steps to home.</h2><ol><li><span>1</span><div><h3>Tell us about your life</h3><p>Complete the short application below. There are no trick questions.</p></div></li><li><span>2</span><div><h3>Have a real conversation</h3><p>We talk routines, expectations, timing, and temperament fit.</p></div></li><li><span>3</span><div><h3>Choose together</h3><p>Meet your strongest matches and review every available health record.</p></div></li><li><span>4</span><div><h3>Bring your companion home</h3><p>Leave with records, transition guidance, and a direct line back to us.</p></div></li></ol></section>
-
-    <section class="section faq-section" id="faq"><div><p class="eyebrow">Straight answers</p><h2>Before you ask.</h2><p>Click any question. If yours is not here, send it with your application.</p></div><div id="faq-questions" class="faq-list"></div></section>
-
-    <section class="section testimonials" id="testimonials"><p class="eyebrow">From their new families</p><h2>The part that matters most.</h2><div id="testimonials-list" class="quote-grid"></div></section>
-
-    <section class="section application" id="apply"><div class="application-copy"><p class="eyebrow eyebrow-light">Start a conversation</p><h2>Tell us who is waiting at home.</h2><p>An application is not a commitment or a payment. It gives us enough context to offer an honest match.</p><p class="local-note"><strong>Private by design:</strong> this offline demonstration validates and saves the application only in this browser. Nothing is uploaded.</p></div><form id="contact-form" novalidate><label>Email<input id="email" name="email" type="email" autocomplete="email" required><small></small></label><label>Phone<input id="phone" name="phone" type="tel" autocomplete="tel" required><small></small></label><label>What should we know?<textarea id="message" name="message" rows="5" required></textarea><small></small></label><button class="button" type="submit">Save my application</button><p id="form-status" role="status" aria-live="polite"></p></form></section>
-  </main>
-
-  <dialog id="dog-dialog"><button class="dialog-close" type="button" aria-label="Close details">×</button><div id="dog-detail"></div></dialog>
-  <footer><div class="brand"><span class="brand-mark">BB</span><span>Buried Bonds<small>Companion Dogs</small></span></div><p>Try the filters, save a favorite, and open a dog's details right in your browser. No signup or installation is needed. Sample applications stay in this browser and are not sent.</p><p>© <span id="year"></span> Buried Bonds</p></footer>
-  <script src="app.js"></script>
+    <section class="adoption-process">
+        <h2>Your first steps</h2>
+        <ul>
+            <li>Explore example profiles</li>
+            <li>Save favorites locally</li>
+            <li>Prepare/export local inquiry</li>
+            <li>Contact a real provider separately using independently verified details</li>
+        </ul>
+    </section>
+    <section class="faq">
+        <h2>FAQ</h2>
+        <div class="question">
+            <button class="faq-toggle">What is the adoption process?</button>
+            <div class="faq-answer">
+                <p>Explore example profiles, save favorites locally, prepare/export local inquiry, then contact a real provider separately using independently verified details.</p>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <h2>Sample testimonials</h2>
+        <div class="testimonial">
+            <p>No stories yet. This is a demonstration, so there are no customer reviews or endorsements to display.</p>
+        </div>
+    </section>
+    <section class="contact-form">
+        <h2>Make a first inquiry</h2>
+        <p>This demo downloads a JSON file to your device. It sends nothing to anyone and reserves nothing. Use sample details if you are just trying it out.</p>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit" class="submit">Export inquiry</button>
+        </form>
+        <div class="error-message" id="error-message"></div>
+        <div class="application-status" role="status" aria-live="polite"></div>
+    </section>
+    <button class="windows-launcher">Download Windows Launcher</button>
+    <p class="launcher-instructions">START_PRODUCT.bat must be kept in the same folder as index.html, styles.css and app.js (all product files together); the batch file alone is not the application.</p>
+    <div class="windows-launcher-message" id="windows-launcher-message"></div>
 </body>
 </html>
