@@ -24,7 +24,7 @@ function recommend(message){
  links=[['Try Nightshift Creator Desk','creator/'],['Studio system requirements','studio/#requirements']];
  }else if(/\b(job|jobs|career|resume|application|interview|employment|profitpilot)\b/.test(q)){
  heading='Your next stop: ProfitPilot.';
- description='Build a career shortlist, load actual remote job listings from Jobicy, open local job-board searches and track applications. The free Windows download adds local AI coaching with your own Ollama model.';
+ description='Try a guided questions-to-options-to-action walkthrough. The free Windows copy adds local AI to choose follow-up questions, recommend supported paths and adapt each next step. Career tools, sourced remote listings and application tracking are included.';
  links=[['Try ProfitPilot','profitpilot/']];
  }else if(/\b(film|movie|slideshow|photo|video)\b/.test(q)){
  heading='Your next stop: Studio Film Desk.';
