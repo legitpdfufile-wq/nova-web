@@ -22,6 +22,10 @@ function recommend(message){
  heading='Start with a browser experience.';
  description='Studio Brain is a Windows download. Nightshift Creator Desk is available to try in your browser. Jumping Jack currently needs a keyboard. A Mac or phone edition of the Studio desktop software is not offered here.';
  links=[['Try Nightshift Creator Desk','creator/'],['Studio system requirements','studio/#requirements']];
+ }else if(/\b(job|jobs|career|resume|application|interview|employment|profitpilot)\b/.test(q)){
+ heading='Your next stop: ProfitPilot.';
+ description='Build a career shortlist, load actual remote job listings from Jobicy, open local job-board searches and track applications. The free Windows download adds local AI coaching with your own Ollama model.';
+ links=[['Try ProfitPilot','profitpilot/']];
  }else if(/\b(film|movie|slideshow|photo|video)\b/.test(q)){
  heading='Your next stop: Studio Film Desk.';
  description='Make and download a real film from your photos, captions and optional soundtrack. Try 720p WebM free in your browser; the local Windows edition adds MP4 and full HD.';
