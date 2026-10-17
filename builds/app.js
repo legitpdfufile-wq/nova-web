@@ -28,7 +28,7 @@ function recommend(message){
  links=[['Try DoctorOne','doctor/']];
  }else if(/\b(job|jobs|career|resume|application|interview|employment|profitpilot)\b/.test(q)){
  heading='Your next stop: ProfitPilot.';
- description='Try a guided questions-to-options-to-action walkthrough. The free Windows copy adds local AI to choose follow-up questions, recommend supported paths and adapt each next step. Career tools, sourced remote listings and application tracking are included.';
+ description='Try a guided questions-to-options-to-action walkthrough. The $9 Windows edition adds local AI to choose follow-up questions, recommend supported paths and adapt each next step. Career tools, sourced remote listings and application tracking are included.';
  links=[['Try ProfitPilot','profitpilot/']];
  }else if(/\b(film|movie|slideshow|photo|video)\b/.test(q)){
  heading='Your next stop: Studio Film Desk.';
