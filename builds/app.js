@@ -22,6 +22,10 @@ function recommend(message){
  heading='Start with a browser experience.';
  description='Studio Brain is a Windows download. Nightshift Creator Desk is available to try in your browser. Jumping Jack currently needs a keyboard. A Mac or phone edition of the Studio desktop software is not offered here.';
  links=[['Try Nightshift Creator Desk','creator/'],['Studio system requirements','studio/#requirements']];
+ }else if(/\b(doctor|diagnostic|diagnostics|audit|scan|scanner|broken|imports|debug)\b/.test(q)){
+ heading='Your next stop: DoctorOne.';
+ description='Inspect a sample project or your own selected files. The browser demo checks path references, Python imports and folder structure locally. It reports findings without changing files; automatic repair is not implemented.';
+ links=[['Try DoctorOne','doctor/']];
  }else if(/\b(job|jobs|career|resume|application|interview|employment|profitpilot)\b/.test(q)){
  heading='Your next stop: ProfitPilot.';
  description='Try a guided questions-to-options-to-action walkthrough. The free Windows copy adds local AI to choose follow-up questions, recommend supported paths and adapt each next step. Career tools, sourced remote listings and application tracking are included.';
