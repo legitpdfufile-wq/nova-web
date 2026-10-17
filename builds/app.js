@@ -1,5 +1,6 @@
 (() => { 'use strict';
 const cards=[...document.querySelectorAll('.product')];
+document.querySelector('[data-filter="all"] span').textContent=cards.length;
 document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
  const filter=button.dataset.filter;let count=0;
  cards.forEach(card=>{card.hidden=filter!=='all'&&!card.dataset.category.split(' ').includes(filter);if(!card.hidden)count++;});
@@ -47,7 +48,7 @@ function recommend(message){
  links=[['Meet Studio Brain','studio/'],['Try the interactive website sample','../studio-demo/']];
  }else{
  heading='Let’s stay with what is in the collection.';
- description='I match requests to these six products. Try “build websites,” “organize content,” “play a game,” “meet people,” or “recorder.” You can also browse every product directly.';
+ description='I match requests to this collection. Try “build websites,” “organize content,” “play a game,” “meet people,” or “recorder.” You can also browse every product directly.';
  links=[['Explore everything','#collection']];
  }
  answer.replaceChildren();const h=document.createElement('h3');h.textContent=heading;answer.append(h);const p=document.createElement('p');p.textContent=description;answer.append(p);
