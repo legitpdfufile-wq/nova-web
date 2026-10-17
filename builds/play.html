@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jumping Jack</title><style>:root{color-scheme:dark;font-family:Segoe UI,Arial,sans-serif;background:#0b1020;color:#ecf1ff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0,#25314d,transparent 65%),#0b1020;min-height:100vh}main{max-width:1120px;margin:auto;padding:44px 32px 20px}.eyebrow{font-size:11px;letter-spacing:.22em;font-weight:800;color:#b8ebc7}header{margin-bottom:24px}h1{font-size:clamp(30px,5vw,54px);line-height:1.05;letter-spacing:-.05em;margin:12px 0}header p{color:#aab5cc;max-width:650px;line-height:1.5;margin:0}.play-shell{position:relative;background:#10192a;border:1px solid #34415a;border-radius:20px;overflow:hidden;box-shadow:0 25px 70px #0006}.hud{display:flex;justify-content:space-between;padding:15px 22px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;background:#121b2c;color:#c6d4ed;border-bottom:1px solid #34415a}canvas{display:block;width:100%;height:auto;outline:none}canvas:focus-visible{outline:3px solid #d0f5bd;outline-offset:-4px}.overlay{position:absolute;inset:47px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:linear-gradient(135deg,#0b1321ed,#152239c9);backdrop-filter:blur(5px)}[hidden]{display:none!important}.overlay h2{font-size:clamp(26px,4vw,48px);letter-spacing:-.04em;margin:12px 0}.overlay p{max-width:400px;font-size:14px;line-height:1.7;color:#bdcbe2;margin:0 0 24px}button{cursor:pointer;border:0;border-radius:10px;background:#c9efb8;color:#16291c;font-weight:750;font-size:14px;padding:15px 24px;min-width:175px;display:inline-flex;gap:30px;justify-content:space-between;transition:transform .15s,background .15s}button:hover{transform:translateY(-2px);background:#e2ffd5}button:focus-visible{outline:3px solid #fff;outline-offset:4px}button:active{transform:translateY(0)}footer{display:flex;align-items:center;justify-content:space-between;gap:20px;color:#aebbd1;font-size:12px;padding:15px 0}footer p{line-height:2.4}footer span{padding:0 9px;color:#61718e}kbd{font-family:inherit;font-size:11px;border:1px solid #43516d;background:#1b263e;padding:3px 7px;border-radius:5px;white-space:nowrap}.quiet{font-size:12px;background:#1c2941;color:#cfdbed;min-width:0;padding:10px 14px;white-space:nowrap}.quiet:hover{background:#30425e}.privacy{margin:5px 0;color:#6f809c;font-size:11px;letter-spacing:.03em}@media(max-width:600px){main{padding:24px 14px}header{margin-bottom:18px}footer{align-items:flex-start;gap:8px}footer p{margin:0}footer span{padding:0 3px}.overlay{padding:16px}.overlay p{margin-bottom:12px;font-size:12px}.overlay h2{margin:7px 0}.overlay button{padding:10px 16px}.eyebrow{font-size:9px}.play-shell{border-radius:12px}}@media(prefers-reduced-motion:reduce){button{transition:none}}
+</style></head><body>
+<main><header><span class="eyebrow">A LOCAL ARCADE ORIGINAL</span><h1>Jumping Jack</h1><p>A Simple Platformer</p></header>
+<section class="play-shell" aria-label="Platformer game"><div class="hud"><span id="phase">Ready</span><span id="progress">0%</span></div>
+<canvas id="game" width="960" height="480" tabindex="0" aria-label="Game world. Arrow keys or A D to move. Space to jump."></canvas>
+<div id="start-screen" class="overlay"><span class="eyebrow">THE ROUTE IS YOURS</span><h2>One leap at a time.</h2><p>Cross the floating platforms and reach the beacon. A missed landing ends the run.</p><button id="start">Start run <span>→</span></button></div>
+<div id="end-screen" class="overlay" hidden><span class="eyebrow" id="end-label"></span><h2 id="end-title"></h2><p id="end-detail"></p><button id="restart">Play again <span>↻</span></button></div>
+</section><footer><p><kbd>←</kbd> <kbd>→</kbd> or <kbd>A</kbd> <kbd>D</kbd> Move <span>·</span> <kbd>Space</kbd> Jump <span>·</span> <kbd>Esc</kbd> Pause</p><button id="reset" class="quiet">Restart run</button></footer>
+<p class="privacy">Runs locally · No account · No network connection required</p></main><script>const STUDIO_LEVEL = {"title": "Jumping Jack", "subtitle": "A Simple Platformer", "sky": "#87CEEB", "accent": "#FFD700", "platform": "#8B4513", "player": "#008000", "platforms": [{"x": 0, "y": 390, "w": 320}, {"x": 370, "y": 355, "w": 200}, {"x": 620, "y": 390, "w": 180}, {"x": 850, "y": 355, "w": 250}, {"x": 1150, "y": 390, "w": 180}, {"x": 1380, "y": 355, "w": 220}, {"x": 1650, "y": 390, "w": 180}, {"x": 1880, "y": 355, "w": 200}, {"x": 2130, "y": 390, "w": 180}, {"x": 2360, "y": 355, "w": 230}]};
+/* Engine-owned physics and rendering. No model-provided executable code. */
+(()=>{'use strict';
+const canvas=document.getElementById('game'),ctx=canvas.getContext('2d');
+const startScreen=document.getElementById('start-screen'),endScreen=document.getElementById('end-screen');
+const phase=document.getElementById('phase'),progress=document.getElementById('progress');
+const platforms=STUDIO_LEVEL.platforms.map(p=>({...p,h:22}));
+const final=platforms[platforms.length-1],goal={x:final.x+final.w-60,y:final.y-72,w:34,h:72};
+const keys=new Set();let state='ready',player, camera=0,previous=0,frames=0,jumps=0,landings=0;
+const W=26,H=34,SPEED=250,GRAVITY=1350,JUMP=550;
+function reset(){player={x:55,y:platforms[0].y-H,vx:0,vy:0,onGround:true};camera=0;jumps=0;landings=0;keys.clear();progress.textContent='0%';}
+function begin(){reset();state='playing';startScreen.hidden=true;endScreen.hidden=true;phase.textContent='In motion';canvas.focus();}
+function finish(won){state=won?'won':'lost';keys.clear();phase.textContent=won?'Route complete':'Run ended';
+document.getElementById('end-label').textContent=won?'BEACON REACHED':'A NEW ROUTE AWAITS';
+document.getElementById('end-title').textContent=won?'Every leap counted.':'Find your next landing.';
+document.getElementById('end-detail').textContent=won?'You crossed every gap and made it home. Ready for another run?':'The platforms are still there. Reset, find your rhythm, and try again.';
+endScreen.hidden=false;document.getElementById('restart').focus();}
+document.getElementById('start').addEventListener('click',begin);
+document.getElementById('restart').addEventListener('click',begin);
+document.getElementById('reset').addEventListener('click',begin);
+addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','ArrowUp','Space','KeyA','KeyD','KeyW','Escape'].includes(e.code))e.preventDefault();
+if(e.code==='Escape'&&(state==='playing'||state==='paused')){state=state==='paused'?'playing':'paused';keys.clear();phase.textContent=state==='paused'?'Paused — Esc to continue':'In motion';return;}
+if(state!=='playing')return;keys.add(e.code);
+if(['Space','ArrowUp','KeyW'].includes(e.code)&&!e.repeat&&player.onGround){player.vy=-JUMP;player.onGround=false;jumps++;}});
+addEventListener('keyup',e=>keys.delete(e.code));
+addEventListener('blur',()=>{keys.clear();if(state==='playing'){state='paused';phase.textContent='Paused — Esc to continue';}});
+function update(dt){if(state!=='playing')return;
+player.vx=((keys.has('ArrowRight')||keys.has('KeyD'))?SPEED:0)-((keys.has('ArrowLeft')||keys.has('KeyA'))?SPEED:0);
+const oldBottom=player.y+H;player.x=Math.max(0,player.x+player.vx*dt);player.vy+=GRAVITY*dt;player.y+=player.vy*dt;player.onGround=false;
+if(player.vy>=0)for(const p of platforms){if(player.x+W>p.x&&player.x<p.x+p.w&&oldBottom<=p.y+2&&player.y+H>=p.y){player.y=p.y-H;player.vy=0;player.onGround=true;if(oldBottom<p.y-1)landings++;break;}}
+camera=Math.max(0,Math.min(player.x-290,final.x+final.w-960));
+progress.textContent=Math.min(100,Math.floor(player.x/goal.x*100))+'%';
+if(player.y>570)finish(false);else if(player.x+W>=goal.x&&player.x<=goal.x+goal.w&&player.y+H>=goal.y&&player.y<=goal.y+goal.h)finish(true);
+}
+function rounded(x,y,w,h,r,color){ctx.fillStyle=color;ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill();}
+function draw(){frames++;ctx.fillStyle=STUDIO_LEVEL.sky;ctx.fillRect(0,0,960,480);
+const gradient=ctx.createLinearGradient(0,0,0,480);gradient.addColorStop(0,'#ffffff08');gradient.addColorStop(1,'#080e2488');ctx.fillStyle=gradient;ctx.fillRect(0,0,960,480);
+for(let i=0;i<65;i++){const x=((i*173-camera*.15)%1020+1020)%1020;ctx.fillStyle=i%3?'#ffffff35':'#ffffff75';ctx.fillRect(x,(i*67)%260+15,i%3?1:2,i%3?1:2);}
+ctx.fillStyle='#ffffff08';ctx.beginPath();ctx.moveTo(0,400);for(let i=0;i<=12;i++)ctx.lineTo(i*100,300+Math.sin(i*1.7-camera*.0005)*55);ctx.lineTo(960,480);ctx.lineTo(0,480);ctx.fill();
+ctx.save();ctx.translate(-camera,0);
+for(const p of platforms){rounded(p.x,p.y+7,p.w,30,10,'#00000035');rounded(p.x,p.y,p.w,p.h,6,STUDIO_LEVEL.platform);rounded(p.x+3,p.y,p.w-6,4,2,STUDIO_LEVEL.accent);ctx.fillStyle='#ffffff12';for(let n=12;n<p.w;n+=24)ctx.fillRect(p.x+n,p.y+11,8,3);}
+ctx.fillStyle=STUDIO_LEVEL.accent;ctx.fillRect(goal.x+9,goal.y,4,goal.h);ctx.beginPath();ctx.moveTo(goal.x+13,goal.y);ctx.lineTo(goal.x+46,goal.y+13);ctx.lineTo(goal.x+13,goal.y+26);ctx.fill();
+rounded(player.x+3,player.y+H+4,W-6,4,2,'#00000033');rounded(player.x,player.y,W,H,7,STUDIO_LEVEL.player);
+ctx.fillStyle='#0b1427';ctx.fillRect(player.x+16,player.y+9,4,5);ctx.fillStyle='#ffffffa0';ctx.fillRect(player.x+5,player.y+4,4,9);
+ctx.restore();if(state==='paused'){ctx.fillStyle='#081020bb';ctx.fillRect(0,0,960,480);ctx.fillStyle='#ecf1ff';ctx.font='600 30px Segoe UI';ctx.textAlign='center';ctx.fillText('Paused',480,226);ctx.font='14px Segoe UI';ctx.fillText('Press Esc to continue',480,260);ctx.textAlign='start';}}
+// Read-only measurements from the reusable engine. The independent referee
+// sends real input and observes live motion/rendered pixels; no test pass flag.
+Object.defineProperty(window,'__STUDIO_PLATFORMER__',{value:Object.freeze({snapshot:()=>({state,player:{...player},camera,frames,jumps,landings,goal:{...goal},platforms:platforms.map(p=>({...p}))})}),writable:false,configurable:false});
+function frame(t){const dt=previous?Math.min((t-previous)/1000,.025):0;previous=t;update(dt);draw();requestAnimationFrame(frame);}
+reset();requestAnimationFrame(frame);
+})();
+</script></body></html>

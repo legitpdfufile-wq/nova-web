@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightshift Creator Desk</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Nightshift Creator Desk</h1>
+    </header>
+    <main>
+        <section id="content-desk" data-entity="content">
+            <h2>Content Desk</h2>
+            <form id="content-form">
+                <label for="content-title">Title:</label>
+                <input type="text" id="content-title" required>
+                <label for="content-channel">Channel:</label>
+                <input type="text" id="content-channel">
+                <label for="content-due-date">Due Date:</label>
+                <input type="date" id="content-due-date">
+                <button type="button" data-action="create">Add Content</button>
+            
+<input type="search" id="search-drops" name="search-drops" placeholder="Search drops by title" aria-label="Search drops by title"><button type="button" data-action="other">Clear Search</button>
+</form>
+            <div id="content-list" data-row-selector=".record">
+                <!-- Records will be added here -->
+            </div>
+        </section>
+        <section id="paid-requests" data-entity="paid-requests">
+            <h2>Paid Requests</h2>
+            <form id="paid-requests-form">
+                <label for="client-alias">Client Alias:</label>
+                <input type="text" id="client-alias" required>
+                <label for="request-price">Price (USD):</label>
+                <input type="number" id="request-price" step="0.01" required>
+                <button type="button" data-action="create">Add Request</button>
+            
+<label for="brief">Brief:</label><br><textarea id="brief" name="brief"></textarea>
+
+<label for="paid-unpaid-state">Paid/Unpaid State:</label><br><br><input type="checkbox" id="paid-unpaid-state" name="paid-unpaid-state" value="paid"><label for="paid-unpaid-state">Paid</label><br><br><input type="checkbox" id="paid-unpaid-state-2" name="paid-unpaid-state" value="unpaid"><label for="paid-unpaid-state-2">Unpaid</label>
+</form>
+            <div id="paid-requests-list" data-row-selector=".record">
+                <!-- Records will be added here -->
+            </div>
+            <p>Total Paid: <span id="paid-total">$0.00</span></p>
+        </section>
+        <section id="controls">
+            <h2>Controls</h2>
+            <form id="edit-form">
+                <label for="edit-select">Select Record:</label>
+                <select id="edit-select" data-action="update">
+                    <option value="">Select a record</option>
+                </select>
+                <label for="edit-title">New Title:</label>
+                <input type="text" id="edit-title">
+                <label for="edit-status">Status:</label>
+                <select id="edit-status">
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <button type="button" data-action="update">Update Record</button>
+                <button type="button" data-action="delete">Delete Record</button>
+            
+<p id="validation-message" role="alert" hidden>Enter a new title and status for the selected drop, and confirm deletion of the selected drop while preserving another saved drop.</p>
+</form>
+            <button type="button" data-action="export">Export Workspace</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Nightshift Creator Desk. All rights reserved.</p>
+    </footer>
+    <script src="app.js" defer></script>
+</body>
+</html>
