@@ -1,0 +1,165 @@
+{
+  "studio": {
+    "name": "Studio Brain",
+    "route": "studio/",
+    "price": "$19",
+    "facts": "Windows local website creation; editable files, accepted creator workflow and Film Desk included. Needs local Ollama, Node, Edge. Not a universal finished game/Roblox generator. Browser demos show its actual outputs.",
+    "buy": "https://payhip.com/b/BEm6T",
+    "tour": [
+      [
+        "main",
+        "Explore the examples here. Film Desk, Nightshift and the game let you try real outputs before buying."
+      ]
+    ],
+    "browser_price": "Free",
+    "windows_price": "$19"
+  },
+  "film": {
+    "name": "Studio Film Desk",
+    "route": "film/",
+    "price": "$19",
+    "facts": "FREE BROWSER FILM MAKER: upload your photos, captions and optional owned audio; preview and export a real 720p WebM film without paying or installing Studio. WINDOWS UPGRADE: $19 Studio Brain includes Film Desk with MP4 and 1080p. Not a second purchase. Files stay on device.",
+    "buy": "https://payhip.com/b/BEm6T",
+    "tour": [
+      [
+        "#title",
+        "Give your film a name. You can change the frame shape and seconds per photo below it."
+      ],
+      [
+        "#drop",
+        "Choose your photos here. They stay on your device. Arrange and caption them in the editor."
+      ],
+      [
+        "#export",
+        "Export your film when the preview looks right. Keep this tab open while it renders."
+      ]
+    ],
+    "browser_price": "Free",
+    "windows_price": "$19"
+  },
+  "profitpilot": {
+    "name": "ProfitPilot",
+    "route": "profitpilot/",
+    "price": "$9",
+    "facts": "Career builder/job finder. Free guided questions-to-options-to-action demo plus planner, real sourced Jobicy remote feed and application tracker. Paid Windows app adds local AI follow-ups, recommendations and adaptive next-step help; not automatic applications or guaranteed jobs.",
+    "buy": "https://payhip.com/b/I85OA",
+    "tour": [
+      [
+        "#journey",
+        "Start the guided path here. Your answers lead to possible directions and the next practical step."
+      ],
+      [
+        "#journey-content",
+        "Choose an answer that fits you. The next screen follows your choice; you can restart this path if you want to try another direction."
+      ],
+      [
+        "#get-copy",
+        "The full Windows edition adds local AI to adapt recommendations and next-step help. The browser path here stays free."
+      ]
+    ],
+    "browser_price": "Free",
+    "windows_price": "$9"
+  },
+  "doctor": {
+    "name": "DoctorOne",
+    "route": "doctor/",
+    "price": "Free",
+    "facts": "Project diagnostics with reactive robot. Browser sample/chosen-file path and Python-import checks run locally without changing files. Original Windows download free. No automatic repair or AI code diagnosis.",
+    "buy": "https://payhip.com/b/6W9QN",
+    "tour": [
+      [
+        "#sample",
+        "Try the sample project first to see what the doctor looks for."
+      ],
+      [
+        "button[data-scan=\"scan\"]",
+        "Run the check here. The report explains findings; nothing is repaired or executed."
+      ],
+      [
+        "#export",
+        "Save your report here after a scan."
+      ]
+    ]
+  },
+  "novasafe": {
+    "name": "NovaSafe",
+    "route": "novasafe/",
+    "price": "$3.99",
+    "facts": "FREE BROWSER: compare selected file bytes with SHA-256 and export report, no removal/moving. $3.99 WINDOWS: folder scans plus recoverable quarantine and non-overwriting restore; quarantine does not free disk space. No model required.",
+    "buy": "https://payhip.com/b/xTzWq",
+    "tour": [
+      [
+        "#sample",
+        "Try the sample to see exact matches and same-size files that are different."
+      ],
+      [
+        "#scan",
+        "Compare the selected files. Only identical SHA-256 hashes count as exact copies."
+      ],
+      [
+        "#export",
+        "Download the report here. Moving files is only in the Windows edition, after your review."
+      ]
+    ],
+    "browser_price": "Free",
+    "windows_price": "$3.99"
+  },
+  "game": {
+    "name": "Jumping Jack",
+    "route": "game/",
+    "price": "Free",
+    "facts": "Working keyboard platformer, arrows or A/D to move, Space to jump, reach the beacon. Needs keyboard; no account. Standalone download available.",
+    "buy": "",
+    "tour": [
+      [
+        "iframe",
+        "Play in this frame: arrows or A/D to move, Space to jump. Reach the beacon. Click inside the game if keys are not responding."
+      ]
+    ]
+  },
+  "creator": {
+    "name": "Nightshift Creator Desk",
+    "route": "creator/app/",
+    "price": "Free",
+    "facts": "Browser workspace for content plans, client briefs, paid-request records and backup export. Local browser storage. Does not collect payments or send client messages.",
+    "buy": "",
+    "tour": [
+      [
+        "#content-title",
+        "Add a real title for your next piece of content here, then choose Add Content."
+      ],
+      [
+        "#client-alias",
+        "Record a client request here. Paid is a record you set, not a payment being collected."
+      ],
+      [
+        "button[data-action=\"export\"]",
+        "Export your workspace here so you have a backup outside browser storage."
+      ]
+    ]
+  },
+  "minglekind": {
+    "name": "MingleKind",
+    "route": "https://minglekind-community.fvf557cynh.chatgpt.site",
+    "price": "Public app",
+    "facts": "Kinder community/connection app, existing externally hosted public application with its own account/access rules.",
+    "buy": "",
+    "tour": []
+  },
+  "openheart": {
+    "name": "OpenHeart",
+    "route": "https://furniture-consistently-tobacco-sub.trycloudflare.com",
+    "price": "Public app",
+    "facts": "Adults 18+ connection/community app, own account rules. Existing Nova-hosted public app; public link maintained by Nova.",
+    "buy": "",
+    "tour": []
+  },
+  "johnny": {
+    "name": "Johnny Law",
+    "route": "https://johnny-law-recorder.mik-luvin-1308.chatgpt.site",
+    "price": "Free",
+    "facts": "Constitution reader and recorder; posted through separate Homestead environment. Use app guidance, not legal advice. Not part of this upgrade repair scope.",
+    "buy": "",
+    "tour": []
+  }
+}
