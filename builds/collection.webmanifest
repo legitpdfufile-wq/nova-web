@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "NOVA Collection",
+  "short_name": "Collection",
+  "description": "Explore working software, make something, and meet Nova. By MYNX Intelligence.",
+  "start_url": "./?source=homescreen",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d0c14",
+  "theme_color": "#0d0c14",
+  "icons": [
+    {
+      "src": "../assets/nova-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
