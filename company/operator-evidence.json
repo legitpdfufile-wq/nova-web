@@ -1,0 +1,127 @@
+{
+  "recorded_date": "2026-10-24",
+  "scope": "Supervised local operator workflow; not a hands-free or whole-ecosystem benchmark.",
+  "operator": "Joshua’s recovered LocalNova lineage, distinct from active Nova World.",
+  "hardware": {
+    "manufacturer": "Lenovo",
+    "model": "83N3",
+    "processor": "Snapdragon X X126100 / Qualcomm Oryon",
+    "ram_gib": 15.6,
+    "source": "Read-only Windows CIM query; no serial numbers collected."
+  },
+  "local_models": [
+    "llama3.2:3b",
+    "qwen2.5-coder:7b"
+  ],
+  "workflow": [
+    "Recall a real retained owner instruction with the local conversation model.",
+    "Ask the installed local coding model to create release_manifest.",
+    "Reject invalid metadata; supply specific feedback to the same task.",
+    "Load the generated capability and run it against three actual company-review files.",
+    "Independently compare file counts, UTF-8 bytes and hashes.",
+    "Detect an empty-input defect; apply one supervised guard correction.",
+    "Verify negative cases, Unicode inputs and fresh-process context/tool reload."
+  ],
+  "supervision": {
+    "requests": "Codex submitted owner-authorized requests through the actual interface.",
+    "file_binding": "Reviewed adapter supplied only the three registered company-review text files.",
+    "generated_tool": "Local model wrote the plugin. Codex changed one conditional from falsey-files to files-is-None after the empty-input test. Original outputs and failure evidence are retained privately.",
+    "dispatch": "Explicit owner commands, not automatic natural-language planning/dispatch.",
+    "capture": "Actual browser screenshots sampled during live interaction, edited with labelled wait cuts; not uninterrupted real-time footage. Editorial narration is separately synthesized using Windows desktop speech.",
+    "model_scope": "Operator model requests go to local Ollama. Codex supervision is separate; the whole supervised demonstration is not represented as offline."
+  },
+  "actual_result": {
+    "file_count": 3,
+    "total_utf8_bytes": 22001,
+    "sha256": {
+      "index.html": "7e6ae52e77cc17559f5a38109b6caafe6399633f15b7678b645d6733887fdd1b",
+      "presentation.js": "0edcb7437aeccdb5d294cc3eddb7a04546ed2489d9f6da020e0ed3e5ab474eb5",
+      "local-production-evidence.json": "79b87996953ea1c982b7468b83eb5d8ce63b998a280c1011468d51adb4e79faf"
+    }
+  },
+  "verified_checks": [
+    "Unicode byte count and hash independently match",
+    "Empty dictionary handled",
+    "Missing, wrong-container and non-string inputs rejected",
+    "Fresh process reloads saved context and generated capability"
+  ],
+  "source_disclosure": "Private original source, memory, prompts, job logs, runtime paths and infrastructure configuration are excluded. Public evidence contains selected results only.",
+  "not_claimed": [
+    "No fresh benchmark on the historical 4 GB Acer.",
+    "No fully offline physical-microphone or hands-free acceptance.",
+    "No automatic bridge between Nova World and Homestead.",
+    "No unattended perfect code generation, worldwide novelty, registered trademark or patent."
+  ],
+  "contact": "halehigherlearning@outlook.com",
+  "supporting_showroom": "https://legitpdfufile-wq.github.io/nova-web/builds/",
+  "generated_tool_sha256": "3534cd8b5875d4e56a061705dfebaaa58796cdc1d999acaa23d11a2966d831e9",
+  "recording": {
+    "duration_seconds": 79.884,
+    "sha256": "bc8974b7326ef179b6b833fa518d4fbd67b8fe4ee44d74f5d052dd1ee60253b2",
+    "narration": "Editorial Windows voice; not represented as a live operator reply.",
+    "capture": "Actual sampled browser capture during live requests. Waits shortened, supervision labelled; no fabricated application results.",
+    "chapters": [
+      {
+        "title": "Local AI, built to operate.",
+        "start_seconds": 0
+      },
+      {
+        "title": "01 / Retained context",
+        "start_seconds": 6.843
+      },
+      {
+        "title": "02 / Add a capability",
+        "start_seconds": 12.417
+      },
+      {
+        "title": "Local model. Local work.",
+        "start_seconds": 18.065
+      },
+      {
+        "title": "A failure is caught",
+        "start_seconds": 23.704
+      },
+      {
+        "title": "Continue the same task",
+        "start_seconds": 27.588
+      },
+      {
+        "title": "The tool shed grows",
+        "start_seconds": 31.682
+      },
+      {
+        "title": "03 / Use it on real work",
+        "start_seconds": 37.1
+      },
+      {
+        "title": "An independently checked result",
+        "start_seconds": 42.419
+      },
+      {
+        "title": "Check the edge case",
+        "start_seconds": 49.292
+      },
+      {
+        "title": "A supervised correction",
+        "start_seconds": 53.241
+      },
+      {
+        "title": "Retain the capability",
+        "start_seconds": 57.355
+      },
+      {
+        "title": "The wider body of work",
+        "start_seconds": 62.304
+      },
+      {
+        "title": "The supporting showroom",
+        "start_seconds": 67.077
+      },
+      {
+        "title": "Meet the builder. Explore the operation.",
+        "start_seconds": 72.226
+      }
+    ]
+  },
+  "input_snapshot": "The three registered project-review files as they existed at execution time. Later presentation edits mean these are not the final website release checksums. The publication patch has a separate exact-file manifest."
+}

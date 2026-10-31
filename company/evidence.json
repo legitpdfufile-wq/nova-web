@@ -1,0 +1,45 @@
+{
+  "title": "MYNX Intelligence — selected execution evidence",
+  "captured_date": "2026-10-24",
+  "type": "retained replay, not current live status",
+  "orchestration": "Codex submitted two separate bounded owner-authorized tasks. No autonomous connection between Nova and Steward is claimed.",
+  "nova": {
+    "identity": "NOVA_FINAL_FORM",
+    "job_id": "906b9d79e748",
+    "request": "everything good",
+    "status": "complete",
+    "checked_utc": "2026-10-24T14:16:05.493550+00:00",
+    "execution_type": "existing operational tool routine, not model-generated reasoning",
+    "selected_results": [
+      {
+        "application": "MingleKind",
+        "signed_out": true,
+        "http_status": 200,
+        "identity_verified": true
+      },
+      {
+        "application": "NOVA Collection",
+        "signed_out": true,
+        "http_status": 200,
+        "identity_verified": true
+      },
+      {
+        "application": "OpenHeart",
+        "signed_out": true,
+        "http_status": 200,
+        "identity_verified": true
+      }
+    ],
+    "limitations": "Temporary public link and unavailable backup capacity limited durability. Additional private warnings omitted. Reachability is not full feature acceptance or automatic failover."
+  },
+  "steward": {
+    "environment": "HOMESTEAD",
+    "job_id": 11,
+    "status": "complete",
+    "model": "llama3.1:8b",
+    "completed_utc": "2026-10-24T14:17:47+00:00",
+    "execution_type": "local model drafting from supplied facts, no browsing or outbound contact",
+    "response": "**VALUE**\n\nHOMESTEAD, a control room with local operating agent STEWARD, retains work, approvals, and execution evidence. MYNX Intelligence builds local AI agents/platforms, production tools, apps, and hosting infrastructure. Nova World, an existing operator, has app health/hosting/tunnel supervision, conversation, memory, and tool/job routes.\n\n**SPONSOR REQUEST**\n\nWe request a hardware evaluation loan or technical showcase review to demonstrate the potential of MYNX Intelligence's products and Nova World's services. This would allow us to showcase the capabilities of our platforms and infrastructure.\n\n**CLAIM TO AVOID**\n\nWe do not claim guaranteed sales, audience traction, or partnership opportunities. We are seeking a neutral evaluation to assess the technical merits of our work."
+  },
+  "privacy": "Whitelisted public fields only. Original logs, paths, credentials, private memory and infrastructure details are excluded."
+}
