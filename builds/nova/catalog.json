@@ -161,5 +161,30 @@
     "facts": "Constitution reader and recorder; posted through separate Homestead environment. Use app guidance, not legal advice. Not part of this upgrade repair scope.",
     "buy": "",
     "tour": []
+  },
+  "seller": {
+    "name": "One Pic Seller",
+    "route": "seller/",
+    "price": "Free",
+    "facts": "Free browser listing-prep workspace: photo cleanup, seller-fact draft, edits, download ZIP and saved selling board. Browser does not run AI image recognition. Free Windows local AI download uses Ollama qwen3-vl:2b-instruct. Manual marketplace posting links, owner-entered status and follow-up dates. No connected marketplace posting, buyer monitoring, automatic delisting or paid subscription is available.",
+    "buy": "",
+    "tour": [
+      [
+        ".hero",
+        "Choose a selling photo. Your original stays untouched; a separate JPEG is prepared."
+      ],
+      [
+        "#hint",
+        "Name the item and add the facts you know. The free browser edition uses your facts; the download adds local AI."
+      ],
+      [
+        "#category",
+        "Choose the category, then prepare your listing. Review its title, description and price before posting."
+      ],
+      [
+        "#board",
+        "Open saved items, follow up on your own listing records, or download a backup. Marketplace automation is not connected."
+      ]
+    ]
   }
 }

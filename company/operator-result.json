@@ -1,0 +1,9 @@
+{
+  "file_count": 3,
+  "total_utf8_bytes": 22001,
+  "sha256": {
+    "index.html": "7e6ae52e77cc17559f5a38109b6caafe6399633f15b7678b645d6733887fdd1b",
+    "presentation.js": "0edcb7437aeccdb5d294cc3eddb7a04546ed2489d9f6da020e0ed3e5ab474eb5",
+    "local-production-evidence.json": "79b87996953ea1c982b7468b83eb5d8ce63b998a280c1011468d51adb4e79faf"
+  }
+}
