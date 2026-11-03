@@ -140,17 +140,17 @@
   },
   "minglekind": {
     "name": "MingleKind",
-    "route": "https://minglekind-community.fvf557cynh.chatgpt.site",
-    "price": "Public app",
-    "facts": "Kinder community/connection app, existing externally hosted public application with its own account/access rules.",
+    "route": "minglekind/",
+    "price": "Adults 18+ · founder-invite beta",
+    "facts": "MingleKind is an adults-only community and dating/social app. Its current hosted member area requires ChatGPT sign-in and a founder invitation. Direct visitors to the MingleKind doorway to preview and request an invitation; do not promise instant public membership.",
     "buy": "",
     "tour": []
   },
   "openheart": {
     "name": "OpenHeart",
-    "route": "https://furniture-consistently-tobacco-sub.trycloudflare.com",
-    "price": "Public app",
-    "facts": "Adults 18+ connection/community app, own account rules. Existing Nova-hosted public app; public link maintained by Nova.",
+    "route": "openheart/",
+    "price": "Free · adults 18+",
+    "facts": "OpenHeart is a separate adults-only connection-ad app. Confirm 18+ to browse; a free account is needed to post or reply. A profile/photo is optional. The stable doorway resolves the current Nova-maintained public address. Laptop-backed availability can vary.",
     "buy": "",
     "tour": []
   },
@@ -186,5 +186,45 @@
         "Open saved items, follow up on your own listing records, or download a backup. Marketplace automation is not connected."
       ]
     ]
+  },
+  "reader": {
+    "name": "AI Reader",
+    "route": "reader/",
+    "price": "Free browser + Windows",
+    "facts": "Text-to-speech reader. Browser paste-and-listen; free Windows ZIP adds Ctrl Alt R selection shortcut and installed Windows speech. No AI model or paid account needed.",
+    "buy": "",
+    "tour": []
+  },
+  "vault": {
+    "name": "The Iron Archive",
+    "route": "vault/",
+    "price": "$1.99 one-time Windows; free browser companion",
+    "facts": "Encrypted file vault. Browser and Windows archive formats differ. Windows x64/ARM emulation. Keep backups; no password recovery. Not independently security-certified.",
+    "buy": "",
+    "tour": []
+  },
+  "hive": {
+    "name": "MYNX Hive Command",
+    "route": "hive/",
+    "price": "Free evaluation preview",
+    "facts": "Browser page-signal monitor and private report viewer. Windows preview adds configured machine/folder/device reporting; not automatic Wi-Fi discovery or a finished universal device manager.",
+    "buy": "",
+    "tour": []
+  },
+  "rook": {
+    "name": "MYNX Rook",
+    "route": "rook/",
+    "price": "Free browser demo; Windows release in preparation",
+    "facts": "Browser file-reference view; preserves originals and does not move/delete files. Windows customer release is in preparation; do not offer a paid download.",
+    "buy": "",
+    "tour": []
+  },
+  "crew": {
+    "name": "K-AI-OS Crew · The Boys",
+    "route": "crew/",
+    "price": "Free browser demo; Windows release in preparation",
+    "facts": "Browser page-structure inspection and exported findings. Windows customer release in preparation; browser demo is not the complete original operator/crew.",
+    "buy": "",
+    "tour": []
   }
 }
