@@ -1,1 +1,25 @@
-(()=>{'use strict';const request=document.getElementById('invite-request'),interest=document.getElementById('interest');function invite(){if(!request)return;const body='Hello Joshua,\n\nI would like to request a MingleKind founder invitation.\nMy starting interest: '+interest.value+'\n\nI understand MingleKind is for adults 18+ and invitations are reviewed manually.\n';request.href='mailto:halehigherlearning@outlook.com?'+new URLSearchParams({subject:'MingleKind founder invitation request',body}).toString()}interest?.addEventListener('change',invite);invite();const link=document.getElementById('openheart-enter'),status=document.getElementById('connection-status'),refresh=document.getElementById('refresh-connection');if(!link)return;let busy=false;async function resolve(){if(busy)return;busy=true;if(refresh)refresh.disabled=true;const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);try{const response=await fetch('https://legitpdfufile-wq.github.io/nova-web/',{cache:'no-store',signal:controller.signal});if(!response.ok)throw Error('Directory unavailable');const dom=new DOMParser().parseFromString(await response.text(),'text/html');const a=[...dom.querySelectorAll('a[href]')].find(a=>a.textContent.toLowerCase().includes('openheart'));if(!a)throw Error('No current OpenHeart address');const u=new URL(a.getAttribute('href'));if(u.protocol!=='https:'||u.username||u.password||!(/^[a-z0-9-]+\.trycloudflare\.com$/.test(u.hostname)))throw Error('Unrecognized app address');link.href=u.href;status.textContent='Current directory link loaded. OpenHeart asks for 18+ confirmation. The link is not a live-availability guarantee.'}catch{status.textContent='The app directory could not refresh. The last known link is available; if it fails, contact Joshua or try again later.'}finally{clearTimeout(timer);busy=false;if(refresh)refresh.disabled=false}}refresh?.addEventListener('click',resolve);resolve()})();
+(()=>{'use strict';
+const link=document.getElementById('minglekind-enter')||document.getElementById('openheart-enter');
+if(!link)return;
+const mingle=link.id==='minglekind-enter',name=mingle?'MingleKind':'OpenHeart';
+const status=document.getElementById('connection-status'),refresh=document.getElementById('refresh-connection');
+let busy=false;
+async function resolve(){
+ if(busy)return;busy=true;if(refresh)refresh.disabled=true;
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);
+ try{
+  const response=await fetch('https://legitpdfufile-wq.github.io/nova-web/',{cache:'no-store',signal:controller.signal});
+  if(!response.ok)throw Error('Directory unavailable');
+  const dom=new DOMParser().parseFromString(await response.text(),'text/html');
+  const a=[...dom.querySelectorAll('a[href]')].find(a=>a.textContent.toLowerCase().includes(name.toLowerCase()));
+  if(!a)throw Error('No current app address');
+  const u=new URL(a.getAttribute('href'));
+  if(u.protocol!=='https:'||u.username||u.password||!(/^[a-z0-9-]+\.trycloudflare\.com$/.test(u.hostname)))throw Error('Unrecognized app address');
+  if(mingle){for(const item of document.querySelectorAll('[data-minglekind-path]')){const path=item.getAttribute('data-minglekind-path');if(['/join','/login','/preview'].includes(path))item.href=new URL(path,u.origin).href}}
+  else link.href=u.href;
+  if(status)status.textContent=mingle?'Current app link loaded. Free normal use · 18+ · No invitation or ChatGPT account.':'Current directory link loaded. OpenHeart asks for 18+ confirmation. The link is not a live-availability guarantee.';
+ }catch{if(status)status.textContent='The directory could not refresh. The last known app links remain available; if they fail, try again later or contact Joshua.'}
+ finally{clearTimeout(timer);busy=false;if(refresh)refresh.disabled=false}
+}
+refresh?.addEventListener('click',resolve);resolve();
+})();

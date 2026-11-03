@@ -141,8 +141,8 @@
   "minglekind": {
     "name": "MingleKind",
     "route": "minglekind/",
-    "price": "Adults 18+ · founder-invite beta",
-    "facts": "MingleKind is an adults-only community and dating/social app. Its current hosted member area requires ChatGPT sign-in and a founder invitation. Direct visitors to the MingleKind doorway to preview and request an invitation; do not promise instant public membership.",
+    "price": "Free normal use · adults 18+",
+    "facts": "MingleKind is an independent adults-only community and dating/social app. Normal use is free: profiles, ten interest rooms, community posts, mutual-interest messaging and hangout features. Public room preview needs no sign-in; participating needs a free username/password account and adult confirmation. No founder invite, email address, ChatGPT account or subscription is required. Account recovery uses a private key saved at signup. Optional paid extras, if offered later, are separate. Its stable doorway resolves the NOVA-maintained public address; laptop-backed availability can vary.",
     "buy": "",
     "tour": []
   },
