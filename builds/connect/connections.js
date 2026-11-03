@@ -15,7 +15,7 @@ async function resolve(){
   if(!a)throw Error('No current app address');
   const u=new URL(a.getAttribute('href'));
   if(u.protocol!=='https:'||u.username||u.password||!(/^[a-z0-9-]+\.trycloudflare\.com$/.test(u.hostname)))throw Error('Unrecognized app address');
-  if(mingle){for(const item of document.querySelectorAll('[data-minglekind-path]')){const path=item.getAttribute('data-minglekind-path');if(['/join','/login','/preview'].includes(path))item.href=new URL(path,u.origin).href}}
+  if(mingle){for(const item of document.querySelectorAll('[data-minglekind-path]')){const path=item.getAttribute('data-minglekind-path');if(['/join','/login','/preview','/community-guidelines'].includes(path))item.href=new URL(path,u.origin).href}}
   else link.href=u.href;
   if(status)status.textContent=mingle?'Current app link loaded. Free normal use · 18+ · No invitation or ChatGPT account.':'Current directory link loaded. OpenHeart asks for 18+ confirmation. The link is not a live-availability guarantee.';
  }catch{if(status)status.textContent='The directory could not refresh. The last known app links remain available; if they fail, try again later or contact Joshua.'}
