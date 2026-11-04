@@ -141,7 +141,7 @@
   "minglekind": {
     "name": "MingleKind",
     "route": "minglekind/",
-    "price": "Free normal use · adults 18+",
+    "price": "Free normal use \u00b7 adults 18+",
     "facts": "MingleKind is an independent adults-only community and dating/social app. Normal use is free: profiles, ten interest rooms, community posts, mutual-interest messaging and hangout features. Public room preview needs no sign-in; participating needs a free username/password account and adult confirmation. No founder invite, email address, ChatGPT account or subscription is required. Account recovery uses a private key saved at signup. Optional paid extras, if offered later, are separate. Its stable doorway resolves the NOVA-maintained public address; laptop-backed availability can vary.",
     "buy": "",
     "tour": []
@@ -149,7 +149,7 @@
   "openheart": {
     "name": "OpenHeart",
     "route": "openheart/",
-    "price": "Free · adults 18+",
+    "price": "Free \u00b7 adults 18+",
     "facts": "OpenHeart is a separate adults-only connection-ad app. Confirm 18+ to browse; a free account is needed to post or reply. A profile/photo is optional. The stable doorway resolves the current Nova-maintained public address. Laptop-backed availability can vary.",
     "buy": "",
     "tour": []
@@ -220,11 +220,27 @@
     "tour": []
   },
   "crew": {
-    "name": "K-AI-OS Crew · The Boys",
+    "name": "K-AI-OS Crew \u00b7 The Boys",
     "route": "crew/",
     "price": "Free browser demo; Windows release in preparation",
     "facts": "Browser page-structure inspection and exported findings. Windows customer release in preparation; browser demo is not the complete original operator/crew.",
     "buy": "",
+    "tour": []
+  },
+  "haven": {
+    "name": "HAVEN Workspace",
+    "route": "../haven/",
+    "price": "$4.99 one time",
+    "facts": "Windows encrypted file vault, authenticated export, integrity checks, encrypted backups and restore into a new folder. Own storage; no included cloud storage or automatic provider sync. No password reset or independent security audit. No AI or ChatGPT account required.",
+    "buy": "https://payhip.com/b/f5OEM",
+    "tour": []
+  },
+  "forge": {
+    "name": "Endless Forge AI",
+    "route": "forge/",
+    "price": "$49 one time",
+    "facts": "Windows Creator Edition for Roblox Studio. A local bridge and Studio plugin support a request/plan/build workflow and included game builders. Upgraded drag-racing builder has actual Play acceptance. Requires Roblox Studio and local setup. Other builders retain their implementations; no claim of universal prompt-to-finished-game support. Not affiliated with Roblox.",
+    "buy": "https://payhip.com/b/o5AE0",
     "tour": []
   }
 }

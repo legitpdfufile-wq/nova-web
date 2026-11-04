@@ -51,7 +51,7 @@ const STUDIO_RECORD_CONFIG = {"version": "actual-record-components-v1", "storage
     const values={};for(const f of c.fields){const input=$(f.selector),text=input.value.trim();if(f.required&&!text){input.focus();return tell(f.label+' is required.',true);}if(f.type==='number'&&text){const number=Number(text);if(!Number.isFinite(number)||c.price===f.key&&number<0){input.focus();return tell('Enter a valid '+f.label.toLowerCase()+'.',true);}values[f.key]=c.price===f.key?Math.round(number*100)/100:number;}else values[f.key]=text;}
     if(c.paid&&!$(c.paid).checked&&!$(c.unpaid).checked)return tell('Choose Paid or Unpaid.',true);
     const row={id:crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2),values};if(c.paid)row.paid=$(c.paid).checked;if(editable===c)row.status=editor.defaultStatus;
-    rows(c).push(row);if(!save()){rows(c).pop();return;}for(const f of c.fields)$(f.selector).value='';resetFlags();render(c);renderPicker();tell('Record saved.');
+    rows(c).push(row);if(!save()){rows(c).pop();return;}for(const f of c.fields)$(f.selector).value='';resetFlags();render(c);renderPicker();tell('Record saved.');window.dispatchEvent(new CustomEvent('mynx-demo',{detail:{state:'complete',kind:'saved'}}));
    });
    form.addEventListener('submit',event=>{event.preventDefault();create.click();});
    if(c.search){$(c.search).addEventListener('input',()=>render(c));$(c.clear).addEventListener('click',()=>{$(c.search).value='';render(c);});}

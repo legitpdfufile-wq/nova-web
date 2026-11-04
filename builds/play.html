@@ -18,7 +18,7 @@ const keys=new Set();let state='ready',player, camera=0,previous=0,frames=0,jump
 const W=26,H=34,SPEED=250,GRAVITY=1350,JUMP=550;
 function reset(){player={x:55,y:platforms[0].y-H,vx:0,vy:0,onGround:true};camera=0;jumps=0;landings=0;keys.clear();progress.textContent='0%';}
 function begin(){reset();state='playing';startScreen.hidden=true;endScreen.hidden=true;phase.textContent='In motion';canvas.focus();}
-function finish(won){state=won?'won':'lost';keys.clear();phase.textContent=won?'Route complete':'Run ended';
+function finish(won){if(won)window.dispatchEvent(new CustomEvent('mynx-demo',{detail:{state:'complete',kind:'game'}}));state=won?'won':'lost';keys.clear();phase.textContent=won?'Route complete':'Run ended';
 document.getElementById('end-label').textContent=won?'BEACON REACHED':'A NEW ROUTE AWAITS';
 document.getElementById('end-title').textContent=won?'Every leap counted.':'Find your next landing.';
 document.getElementById('end-detail').textContent=won?'You crossed every gap and made it home. Ready for another run?':'The platforms are still there. Reset, find your rhythm, and try again.';
