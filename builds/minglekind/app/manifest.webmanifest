@@ -1,0 +1,17 @@
+{
+  "id": "minglekind-active-launcher",
+  "name": "MingleKind",
+  "short_name": "MingleKind",
+  "start_url": "./?launch=1",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101918",
+  "theme_color": "#101918",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
