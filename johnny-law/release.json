@@ -6,14 +6,15 @@
   "public_url": "https://legitpdfufile-wq.github.io/nova-web/johnny-law/",
   "scope": "Traffic-stop education and device-local evidence tools. Federal baseline; limited official California traffic-stop summary. No comprehensive state procedure packs. ZIP suggests a state and requires confirmation.",
   "files": {
-    "index.html": "cc7d4540194ddfa9afd1498e93bf05f572a42b35e9af1717e4fdb0c1bedd40fa",
-    "style.css": "3a203f46308dcc31b8a3927b3b397ba83ddef4d593a73205616195f564bdebc7",
-    "app.js": "7059aace312cbeec486a4a3029c9f503b22a9ff6ebf8c203e589fcf09d4c8f50",
-    "traffic-rights.js": "ffaf12cd9fa6a10cd26c7fe31e2a6a5b82c5fa849209eb5f80d50abe194dc843",
+    "index.html": "1d49d727a1637948ccd3ad5bad0e97929fc496b0bfc0917785e22ebaad80464a",
+    "style.css": "ecfed733103a2557b5e7252ace35dade159081f3c4e36d85a56749a584e886e2",
+    "app.js": "a3c66c34397fbd7aebbe732e0bb03d7b776f17cec3f225984660e32477893340",
+    "traffic-rights.js": "6f718b7018d44cec5d0f34f868a681917e45142d3ad923e7ab9be387b5ccb5f2",
     "evidence-store.js": "d96adee3ab8d6285a6659341248ac93f92ba0bda3674d13da7f5b0276d9fba1d",
     "zip-states.json": "b8d812a63ef91656d70853335c484478c5ed577f39c2a39901cb775e2190f461",
-    "manifest.webmanifest": "67cbb6d462b105b358ba6fb47ab298cc5e141dc624e717a3ad158da4ff853c66",
+    "manifest.webmanifest": "bc14804ec3dd611ea18f884d8b2cffd0b065be798586a8169a3d770e11d18ed1",
     "johnny-law-icon.svg": "53536c93684908dc890128319a12b82deddcad6e862054b7ce595ae52959edf1",
-    "sw.js": "3c6e005458948113f6f5c22b372844d1d69b4b66c263764e93f37c4d7f4f0530"
-  }
+    "sw.js": "a0de9803cf861b126636bd7944988fa7a1d96080747e2b4acb362246053f6ee8"
+  },
+  "hash_note": "Hashes describe the published Git blobs (canonical line endings), not Windows working-copy line endings."
 }
