@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data: blob:; media-src 'self' data: blob:; worker-src 'self'; object-src 'none'; base-uri 'self'">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1118">
+<title>Johnny Law — Legal information and case organizer</title>
+<meta name="description" content="Johnny Law helps organize encounters, recordings, notes, and case timelines. General legal information only; not legal representation or emergency service.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="johnny-law-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="fatal" class="fatal hidden">
+  <h2>Johnny hit a snag.</h2>
+  <p>The interface loaded, but a feature failed. Reload safely. Your saved case files are kept.</p>
+  <button id="fatalReset">Reload safely</button>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div><div id="storageWarning" class="fatal hidden" role="alert"><strong>Storage needs attention.</strong><p>Recent changes or audio may not be saved. Export your timeline and original evidence. Keep this page open until you have backups.</p><button id="dismissStorage">Keep working</button></div>
+
+<div id="setup" class="modal hidden">
+  <div class="modal-card">
+    <img src="johnny-law-icon.svg" class="logo-big" alt="Johnny Law shield logo">
+    <h2>Johnny’s got your back.</h2>
+    <p>Johnny provides general legal information and organization, not legal representation.</p>
+    <label for="setupZip">ZIP where the stop is happening (optional)</label><input id="setupZip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" placeholder="e.g. 90210"><button id="lookupSetupZip" type="button">Find my state</button><p id="setupZipResult" role="status">ZIP lookup stays on this device. Confirm the actual state; postal areas are not legal boundaries.</p><label for="setupRole">I am the</label><select id="setupRole"><option value="driver">Driver</option><option value="passenger">Passenger</option></select><label for="setupState">Confirm the state of this stop</label>
+    <select id="setupState"></select>
+    <label class="check" for="setupLocation"><input type="checkbox" id="setupLocation"> Allow location logging when starting a case</label>
+    <label class="check" for="setupAutoRecord"><input type="checkbox" id="setupAutoRecord"> Automatically start recording when I tap “I’m In It Now”</label>
+    <label class="check" for="setupAgree"><input type="checkbox" id="setupAgree"> I understand recording laws vary and I am responsible for using recording lawfully</label>
+    <button id="setupContinue" class="primary wide">Continue</button>
+  </div>
+</div>
+
+<div class="app">
+<header>
+  <button id="homeLogo" class="brand">
+    <img src="johnny-law-icon.svg" alt="">
+    <span><strong>Johnny Law</strong><small>I’ve got your back.</small></span>
+  </button>
+  <div class="top-actions">
+    <span id="jsStatus" class="status bad">Starting…</span>
+    <button id="voiceBtn" class="icon" aria-label="Toggle spoken replies">🔊</button>
+    <button id="settingsBtn" class="icon" aria-label="Open settings">⚙️</button>
+  </div>
+</header><div id="recordBar" class="record-bar hidden"><span></span><strong>LIVE • Recording</strong><b id="recordTimer">00:00</b><button id="markRecordBar">Mark</button><button id="endLiveBar">End</button><button id="stopRecordBar">Stop</button></div>
+
+<main>
+<section id="home" class="screen active">
+  <div class="hero">
+    <div class="online"><span></span> Johnny is here</div>
+    <h1>Tell Johnny what’s happening.</h1>
+    <p>Guided roadside information, local notes, and evidence capture. Keep the page open; Johnny cannot call for help or guarantee background recording.</p>
+
+    <button id="getBackBtn" class="get-back">
+      <span>🛡️</span>
+      <div><strong>I’m In It Now</strong><small>Start timeline and Live Action Mode · Recording is optional</small></div>
+    </button>
+
+    <div class="card" id="coreRights"><h3>★ Your core protections</h3><p><strong>Rights precede government.</strong> The Constitution limits officials; their oath does not put them above it. These stars mark core protections, not a promise of immunity.</p><p>★ Unreasonable searches and seizures — Fourth Amendment.<br>★ Compelled self-incrimination — Fifth Amendment.<br>★ Due process, equal protection, and applicable rights to counsel.<br>★ Peaceful speech and the right to petition for redress.</p><div class="chips"><button data-rights="Officer asked: Do you know why I pulled you over?">Do you know why?</button><button data-rights="Officer asked where are you heading tonight?">Where are you heading?</button><button data-rights="Officer asked for my license">Asked for my license</button><button data-rights="They threatened to break my window">Threats or force</button><button data-rights="I am still waiting forever">Stop taking too long</button></div><p id="jurisdictionStatus"></p><p><a href="https://www.usa.gov/state-motor-vehicle-services" target="_blank" rel="noopener noreferrer">Official state motor-vehicle sources</a> · <a href="https://www.govinfo.gov/content/pkg/USREPORTS-490/pdf/USREPORTS-490-386.pdf" target="_blank" rel="noopener noreferrer">Force standard: Graham</a> · <a href="https://www.supremecourt.gov/opinions/24pdf/23-1239_onjq.pdf" target="_blank" rel="noopener noreferrer">Barnes: the whole encounter matters</a></p></div><div class="grid">
+      <button id="askBtn" class="tile"><span>💬</span><strong>Ask Johnny</strong><small>Traffic-stop questions and rights</small></button>
+      <button id="replayBtn" class="tile"><span>📝</span><strong>Johnny Replay</strong><small>Rebuild what happened</small></button>
+      <button id="casesBtn" class="tile"><span>📂</span><strong>My Case Files</strong><small>Recordings, notes and dates</small></button>
+      <button id="helpBtn" class="tile"><span>⚖️</span><strong>Find Legal Help</strong><small>Honest help when facts matter</small></button>
+    </div>
+
+    <div class="card"><h3>Your rights come first.</h3><p>Johnny starts with inherent, Creator-given rights and constitutional limits on government. Officials are bound by oath to support the Constitution. A specific legal challenge still needs facts and applicable law.</p><details><summary>Sources and roadside limits</summary><p>Federal information reviewed November 17, 2026. ZIP suggests a state; confirm the actual stop location. California has a limited official traffic-stop source summary. Other states currently show the federal baseline and official state-source directory. Identification, recording, and testing rules vary.</p><p>Founding principle · Current enforceable rule · Path to challenge.</p><a href="https://www.archives.gov/founding-docs/declaration-transcript" target="_blank" rel="noopener noreferrer">Declaration</a> · <a href="https://www.senate.gov/about/origins-foundations/senate-and-constitution/constitution.htm" target="_blank" rel="noopener noreferrer">Constitution and oath</a><p><a href="https://www.govinfo.gov/content/pkg/USREPORTS-575/pdf/USREPORTS-575-348.pdf" target="_blank" rel="noopener noreferrer">Rodriguez: stop duration</a> · <a href="https://www.govinfo.gov/content/pkg/USREPORTS-434/pdf/USREPORTS-434-106.pdf" target="_blank" rel="noopener noreferrer">Mimms: driver exit</a> · <a href="https://www.govinfo.gov/content/pkg/USREPORTS-519/pdf/USREPORTS-519-408.pdf" target="_blank" rel="noopener noreferrer">Wilson: passenger exit</a></p><p>A lawful stop can permit an exit order. Nonconsent does not automatically prevent a search based on other legal grounds. Avoid physical resistance; preserve the reason, timing, words, and evidence for review. No guaranteed outcome or legal representation.</p><p>ZIP data: <a href="https://www.geonames.org/" target="_blank" rel="noopener noreferrer">GeoNames</a>, CC BY 4.0, adapted to ZIP-to-state suggestions. Dataset retrieved November 17, 2026; supplied as-is. Evidence stays on this browser/site. Download before changing sites or devices.</p></details></div><h3>Quick start</h3>
+    <div class="chips">
+      <button data-scenario="traffic">Traffic stop</button>
+    </div>
+
+    <div class="location-card">
+      <span>📍</span>
+      <div><small>Legal location</small><strong id="stateLabel">Not set</strong></div>
+      <button id="changeStateBtn">Change</button>
+    </div>
+  </div>
+</section>
+
+<section id="chat" class="screen">
+  <div class="subhead">
+    <button id="chatHome">← Home</button>
+    <div><strong id="chatTitle">Live Situation</strong><small id="chatCase">No active case</small></div>
+    <button id="openCaseBtn">Case</button>
+  </div>
+  
+  <div id="messages" class="messages"></div>
+  <div id="suggestions" class="suggestions"></div>
+  <form id="composer" class="composer">
+    <button type="button" id="micBtn" aria-label="Use microphone">🎤</button>
+    <label for="input" class="sr-only">Message Johnny</label>
+    <textarea id="input" rows="1" placeholder="Tell Johnny what’s happening..."></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<section id="cases" class="screen">
+  <div class="subhead"><button id="casesHome">← Home</button><div><strong>My Case Files</strong><small>Stored on this device</small></div><button id="newCaseBtn">New</button></div>
+  <div id="casesList" class="content"></div>
+</section>
+
+<section id="case" class="screen">
+  <div class="subhead"><button id="caseBack">← Back</button><div><strong id="caseHeading">Case File</strong><small id="caseSub"></small></div><button id="closeCaseBtn">Close</button></div>
+  <div class="tabs">
+    <button data-tab="summary" class="active">Summary</button>
+    <button data-tab="timeline">Timeline</button>
+    <button data-tab="evidence">Evidence</button>
+    <button data-tab="dates">Dates</button>
+  </div>
+  <div id="tab-summary" class="panel active">
+    <div class="card">
+      <label for="caseTitleInput">Case title</label><input id="caseTitleInput">
+      <label for="caseOutcome">Outcome / note</label><textarea id="caseOutcome" rows="5"></textarea>
+      <button id="saveCaseBtn" class="primary wide">Save Case</button>
+    </div>
+    <div class="card"><h3>Johnny’s current understanding</h3><pre id="factsView"></pre></div>
+  </div>
+  <div id="tab-timeline" class="panel">
+    <div class="card"><label for="timelineText" class="sr-only">Case timeline</label><textarea id="timelineText" class="big"></textarea><button id="copyTimeline">Copy</button><button id="downloadTimeline">Download</button></div>
+  </div>
+  <div id="tab-evidence" class="panel">
+    <div class="card">
+      <h3>Johnny Record</h3>
+      <p>Say “Johnny, start recording” or use the button.</p>
+      <button id="startRecordBtn" class="danger">● Start Recording</button>
+      <button id="stopRecordBtn" disabled>Stop</button>
+      <div id="recordingsList"></div>
+    </div>
+    <div class="card">
+      <h3>Add photos or documents</h3>
+      <label for="fileInput">Choose photos or documents</label>
+      <input id="fileInput" type="file" multiple>
+      <div id="filesList"></div>
+    </div>
+  </div>
+  <div id="tab-dates" class="panel">
+    <div class="card">
+      <h3>Add court date or deadline</h3>
+      <label for="dateLabel">Date or deadline name</label>
+      <input id="dateLabel" placeholder="Court appearance">
+      <label for="dateTime">Date and time</label>
+      <input id="dateTime" type="datetime-local">
+      <label for="reminderSelect">Reminder time</label>
+      <select id="reminderSelect">
+        <option value="30">30 minutes before</option>
+        <option value="60">1 hour before</option>
+        <option value="1440">1 day before</option>
+        <option value="10080">1 week before</option>
+      </select>
+      <button id="addDateBtn" class="primary wide">Save & Download Calendar Reminder</button>
+      <div id="datesList"></div>
+    </div>
+  </div>
+</section>
+
+<section id="help" class="screen">
+  <div class="subhead"><button id="helpHome">← Home</button><div><strong>Find Legal Help</strong><small>Johnny never guesses</small></div><span></span></div>
+  <div class="content">
+    <div class="card">
+      <h2>Johnny’s honesty rule</h2>
+      <blockquote>“I don’t want to guess because getting this wrong could matter.”</blockquote>
+      <p>When Johnny cannot verify something, he can help you prepare your facts and find legal aid, a state-bar referral, a public defender, or a free consultation.</p>
+      <button id="legalAidBtn" class="primary wide">Search Legal Aid Near Me</button>
+      <button id="stateBarBtn" class="wide">Search My State Bar</button>
+    </div>
+  </div>
+</section>
+</main>
+</div>
+
+<div id="settings" class="modal hidden">
+  <div class="modal-card">
+    <h2>Settings</h2>
+    <label for="settingsZip">ZIP where the stop is happening</label><input id="settingsZip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5"><button id="lookupSettingsZip" type="button">Find my state</button><p id="settingsZipResult" role="status">Confirm the state before saving.</p><label for="settingsRole">I am the</label><select id="settingsRole"><option value="driver">Driver</option><option value="passenger">Passenger</option></select><label for="settingsState">Confirm state</label><select id="settingsState"></select>
+    <label class="check" for="settingsLocation"><input type="checkbox" id="settingsLocation"> Log location when starting a case</label>
+    <label class="check" for="settingsVoice"><input type="checkbox" id="settingsVoice"> Speak Johnny’s replies</label>
+    <label class="check" for="settingsAutoRecord"><input type="checkbox" id="settingsAutoRecord"> Auto-record when “I’m In It Now” starts</label>
+    <label class="check" for="settingsContinuous"><input type="checkbox" id="settingsContinuous"> Keep listening for “Johnny…” commands when supported (browser speech services may process voice online)</label>
+    <button id="saveSettings" class="primary wide">Save</button>
+    <button id="resetApp" class="danger wide">Reset App</button>
+    <button id="cancelSettings" class="wide">Cancel</button>
+  </div>
+</div>
+
+<script src="traffic-rights.js"></script>
+<script src="evidence-store.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

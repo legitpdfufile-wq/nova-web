@@ -1,0 +1,9 @@
+Johnny Law public release
+
+This is the existing roadside app, improved in place and exported as static files. Cases, audio and attached evidence are stored in the visitor browser/site, not on Joshua's computer or a public server. Export original files as backups. Browser speech recognition is optional and may use browser-provider online services.
+
+Legal source scope: federal constitutional text and named Supreme Court decisions, plus a bounded California DMV traffic-stop summary, reviewed November 17, 2026. Other state procedure packs are not represented as verified. ZIP is a postal lookup, not a legal boundary finder.
+
+ZIP data: GeoNames https://www.geonames.org/ — CC BY 4.0. Downloaded https://download.geonames.org/export/zip/US.zip on November 17, 2026. Adapted into ZIP-to-state suggestions. As-is, without accuracy guarantee.
+
+General information, not legal representation or emergency response. No government affiliation. Source links and founding-principle/current-rule/challenge distinctions are in the app.
