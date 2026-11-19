@@ -1,20 +1,22 @@
 {
   "app": "JOHNNY_LAW_V5_2",
-  "release": "traffic-zip-evidence-20261117",
+  "release": "traffic-rights-reporting-20261118",
   "source_reviewed": "2026-11-17",
   "built_utc": "2026-11-18T00:35:37.434905+00:00",
   "public_url": "https://legitpdfufile-wq.github.io/nova-web/johnny-law/",
   "scope": "Traffic-stop education and device-local evidence tools. Federal baseline; limited official California traffic-stop summary. No comprehensive state procedure packs. ZIP suggests a state and requires confirmation.",
   "files": {
-    "index.html": "1d49d727a1637948ccd3ad5bad0e97929fc496b0bfc0917785e22ebaad80464a",
-    "style.css": "ecfed733103a2557b5e7252ace35dade159081f3c4e36d85a56749a584e886e2",
-    "app.js": "a3c66c34397fbd7aebbe732e0bb03d7b776f17cec3f225984660e32477893340",
-    "traffic-rights.js": "6f718b7018d44cec5d0f34f868a681917e45142d3ad923e7ab9be387b5ccb5f2",
+    "index.html": "5ab43c40445fbd305d837ac3e8d87bd1101a428e50a2b3aac4010be50bafd56a",
+    "style.css": "f7225287b86928366b00d20d57d9de8b538fba931481a244016827c44dd6cdc8",
+    "app.js": "24ef1fae171aede7e439cd8fec5ce88fe064f9e8d9339381c4a969f8eb2994ae",
+    "traffic-rights.js": "a691750ddc54ff2b3255df017333aee6162685cc2e405bac4b8825ac2d447da1",
     "evidence-store.js": "d96adee3ab8d6285a6659341248ac93f92ba0bda3674d13da7f5b0276d9fba1d",
     "zip-states.json": "b8d812a63ef91656d70853335c484478c5ed577f39c2a39901cb775e2190f461",
     "manifest.webmanifest": "bc14804ec3dd611ea18f884d8b2cffd0b065be798586a8169a3d770e11d18ed1",
     "johnny-law-icon.svg": "53536c93684908dc890128319a12b82deddcad6e862054b7ce595ae52959edf1",
-    "sw.js": "a0de9803cf861b126636bd7944988fa7a1d96080747e2b4acb362246053f6ee8"
+    "sw.js": "3c5915a7a790c1851c69bab39df0a7690bc98c9703d023e4294fabb08acc3bef"
   },
-  "hash_note": "Hashes describe the published Git blobs (canonical line endings), not Windows working-copy line endings."
+  "hash_note": "Hashes describe the published Git blobs (canonical line endings), not Windows working-copy line endings.",
+  "constitutional_text_reviewed": "2026-11-18",
+  "rights_report_logging": "Verbatim person-reported rights violations, device timestamps, timeline markers and export. Reports are not automatic legal findings."
 }

@@ -10,3 +10,5 @@
 .record-bar{position:sticky;top:76px;z-index:30;flex-wrap:wrap;font-size:12px}.record-bar button{font-size:12px;padding:6px}.file-row small{display:block}
 
 .modal-card input:not([type=checkbox]){width:100%;padding:12px;border:1px solid var(--line);border-radius:10px} #setupZipResult,#settingsZipResult,#jurisdictionStatus{font-size:13px;color:var(--muted)}
+
+#rightsReportWords{width:100%;padding:12px;background:#0c141c;color:var(--text);border:1px solid var(--line);border-radius:11px}#rightsReportBtn{width:calc(100% - 24px);margin:12px}#rightsReportFeedback{color:var(--gold)}
