@@ -94,11 +94,11 @@ function traffic(c,t){const x=t.toLowerCase().trim();
   setFact(c,"exitRequested",true);setStage(c,"exit","Ordered out of vehicle");mark(c,"Officer ordered user out (reported)","detention");
   const both=/(?:roll|lower|open).*window|window.*down/.test(x);
   if(both){setFact(c,"windowRequested",true);mark(c,"Officer ordered window lowered (reported)","detention")}
-  return[both?"Your rights to silence and protection against unreasonable searches and seizures continue. Both orders you reported are in this timeline. You choose your response. Silence does not itself excuse lawful orders. Avoid physical resistance.":"Your rights to silence and protection against unreasonable seizures continue. The exit order you reported is in this timeline. You choose your response. Silence does not itself excuse a lawful order. Avoid physical resistance.",["They gave a reason","Still detained","Released me"]];
+  return[both?"Your rights to silence and protection against unreasonable searches and seizures continue. Both orders you reported are in this timeline. You choose your response. Johnny has not determined whether these orders are lawful. Avoid physical resistance.":"Your rights to silence and protection against unreasonable seizures continue. The exit order you reported is in this timeline. You choose your response. Johnny has not determined whether this order is lawful. Avoid physical resistance.",["They gave a reason","Still detained","Released me"]];
  }
  if(/(?:roll|lower|open).*window|window.*down/.test(x)){
   setFact(c,"windowRequested",true);setStage(c,"contact","Window order reported");mark(c,"Officer ordered window lowered (reported)","detention");
-  return["Your rights to silence and protection against unreasonable searches continue. The window order you reported is in this timeline. You choose your response. Silence does not itself excuse a lawful order. Keep your hands visible.",["Said step out","They gave a reason","Released me"]];
+  return["Your rights to silence and protection against unreasonable searches continue. The window order you reported is in this timeline. You choose your response. Johnny has not determined whether this order is lawful. Keep your hands visible.",["Said step out","They gave a reason","Released me"]];
  }
  if(/^(?:i (?:remain|stay|stayed|remained|am remaining|am staying) silent|i(?:'m| am) (?:exercising|invoking) my right to remain silent)[.!]?$/.test(x)){
   setFact(c,"userReportsSilence",true);return["You have the right to remain silent and not be compelled to incriminate yourself. Your statement is in this timeline. You choose what to say next.",["Roll down your window","Said step out","Released me"]];
