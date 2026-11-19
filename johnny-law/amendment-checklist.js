@@ -32,14 +32,18 @@ window.JohnnyConstitution=(()=>{
  [26,'Voting-age protection beginning at eighteen.',/vot|ballot|polling/i,'Identify the age-related voting restriction.'],
  [27,'Timing of congressional pay changes.',/congress.*(?:pay|salary|compensation)/i,'Applies to congressional compensation changes.']
  ];
+ const ordinals=['first','second','third','fourth','fifth','sixth','seventh','eighth','ninth','tenth','eleventh','twelfth','thirteenth','fourteenth','fifteenth','sixteenth','seventeenth','eighteenth','nineteenth','twentieth','twenty-first','twenty-second','twenty-third','twenty-fourth','twenty-fifth','twenty-sixth','twenty-seventh'];
+ const romans=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII','XVIII','XIX','XX','XXI','XXII','XXIII','XXIV','XXV','XXVI','XXVII'];
+ const references=ordinals.map((word,i)=>new RegExp('\\b(?:amendment\\s*(?:'+(i+1)+'|'+romans[i]+')|'+(i+1)+'(?:st|nd|rd|th)?\\s+amendment|'+word.replace('-','[- ]')+'\\s+amendment)\\b','i'));
  function review(c){
   const reports=(c?.timeline||[]).filter(x=>x.who==='User'||x.kind==='rights-report');
   const account=reports.map(x=>x.text||'').join('\n');
   const items=definitions.map(([number,summary,pattern,prompt])=>{
    const baseline=number===9||number===10;
-   const matched=(number===4&&c?.type==='traffic')||!!pattern?.test(account);
-   const status=number===18?'Historical / repealed':baseline?'Foundational cross-check':matched?'Review suggested':'Not raised in this account';
-   return {number,summary,status,prompt:matched||baseline||number===18?prompt:'No matching topic reported; this is not a finding that the right is absent or unviolated.',source:number<=10?early:later};
+   const requested=references[number-1].test(account);
+   const matched=requested||(number===4&&c?.type==='traffic')||!!pattern?.test(account);
+   const status=number===18?'Historical / repealed':matched?'Review suggested':baseline?'Foundational cross-check':'Not raised in this account';
+   return {number,summary,status,prompt:matched||baseline||number===18?(requested?'You requested review of this amendment. ':'')+prompt:'No matching topic reported; this is not a finding that the right is absent or unviolated.',source:number<=10?early:later};
   });
   return {version,reportCount:reports.length,items,flagged:items.filter(x=>x.status==='Review suggested').map(x=>x.number)};
  }

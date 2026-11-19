@@ -6,7 +6,7 @@
   "public_url": "https://legitpdfufile-wq.github.io/nova-web/johnny-law/",
   "scope": "Traffic-stop education and device-local evidence tools. Federal baseline; limited official California traffic-stop summary. No comprehensive state procedure packs. ZIP suggests a state and requires confirmation.",
   "files": {
-    "index.html": "298c007b946f2b7593cd22b93546a72526db212f1e4004d0faae5fe34f7c1f6c",
+    "index.html": "3bd9a7616075eed01fd24e9fcdc6cb8305ac148aa3e4f3801d2347ff1af1777a",
     "style.css": "bd116e49e89fde36432253671778dc8164f8bcd3362a357f3399e289453a3c87",
     "app.js": "8bfc4fed522886ecd2b29718f3cfa11596e7a8ad267f2cce8bad534b1175c37d",
     "traffic-rights.js": "a691750ddc54ff2b3255df017333aee6162685cc2e405bac4b8825ac2d447da1",
@@ -14,11 +14,12 @@
     "zip-states.json": "b8d812a63ef91656d70853335c484478c5ed577f39c2a39901cb775e2190f461",
     "manifest.webmanifest": "bc14804ec3dd611ea18f884d8b2cffd0b065be798586a8169a3d770e11d18ed1",
     "johnny-law-icon.svg": "53536c93684908dc890128319a12b82deddcad6e862054b7ce595ae52959edf1",
-    "sw.js": "4268576f6f849f93e4a941472c7dd2958847674b684041c8e6f35235cdad50ce",
-    "amendment-checklist.js": "670c2e4c0d75850290d9a186aab625bbd17f23334e764d9aba7eb0168360da70"
+    "sw.js": "dba8e3e6d3cdc00fdb340a5ca035a65eb51cc8c125edb98756da189d3342e524",
+    "amendment-checklist.js": "07d6ef7bc8212dae2392d18ad2206febbf6273cac6edb87dd5e7d5bf85644e4a"
   },
   "hash_note": "Hashes describe the published Git blobs (canonical line endings), not Windows working-copy line endings.",
   "constitutional_text_reviewed": "2026-11-18",
   "rights_report_logging": "Verbatim person-reported rights violations, device timestamps, timeline markers and export. Reports are not automatic legal findings.",
-  "amendment_checklist": "27 topic checks over reported accounts, not independent legal reasoning or a determination of applicability. Brief summaries link to full primary text. No absent flag rules out a violation."
+  "amendment_checklist": "27 topic checks over reported accounts, not independent legal reasoning or a determination of applicability. Brief summaries link to full primary text. No absent flag rules out a violation.",
+  "explicit_amendment_references": "Numbers, ordinal names and Roman numerals are recognized as requests for topic review, not proof of a violation."
 }
