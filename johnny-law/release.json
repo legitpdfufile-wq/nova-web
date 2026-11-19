@@ -1,20 +1,20 @@
 {
   "app": "JOHNNY_LAW_V5_2",
-  "release": "no-assumption-rights-replies-20261118",
+  "release": "potential-conflict-flags-20261119",
   "source_reviewed": "2026-11-17",
   "built_utc": "2026-11-18T00:35:37.434905+00:00",
   "public_url": "https://legitpdfufile-wq.github.io/nova-web/johnny-law/",
   "scope": "Traffic-stop education and device-local evidence tools. Federal baseline; limited official California traffic-stop summary. No comprehensive state procedure packs. ZIP suggests a state and requires confirmation.",
   "files": {
-    "index.html": "0d46d96f4d6c7c9b7606b0e476215db488c978e1233c4034f08168957d5b0fdd",
+    "index.html": "e51def4399a6d3b7799ea4a283abfda5d7557674b9cf20261487a59f5bd2125a",
     "style.css": "d9cfbe96e9f2883a0648cc76fea6386b71dbf760f931997303a5a0b56bc377e9",
-    "app.js": "03dce6b94c507a9306a619725b110dcc686a1282f87bb6f9ce2587c10e828267",
-    "traffic-rights.js": "2695f7ff4470107a3a3a646c192a04f3a5c093463a349ec5a330dec5e7359789",
+    "app.js": "9ba0dda07d674a959edde18168bae9c3068780ea507401202d03267f77312a3d",
+    "traffic-rights.js": "a66f5940959b29c0fb0ed3a27dcdcdbcab765adb55d98df08e5e323fabec69e6",
     "evidence-store.js": "d96adee3ab8d6285a6659341248ac93f92ba0bda3674d13da7f5b0276d9fba1d",
     "zip-states.json": "b8d812a63ef91656d70853335c484478c5ed577f39c2a39901cb775e2190f461",
     "manifest.webmanifest": "bc14804ec3dd611ea18f884d8b2cffd0b065be798586a8169a3d770e11d18ed1",
     "johnny-law-icon.svg": "53536c93684908dc890128319a12b82deddcad6e862054b7ce595ae52959edf1",
-    "sw.js": "e77070450c71f0eb46772135d0e2dbbc87bd9805adc5abdc09ab9ba1d6b50adc",
+    "sw.js": "1f2362061081a8daa5bfcebc6f82c58bce1901533ebea6a7da1a4a692421a2b6",
     "amendment-checklist.js": "07d6ef7bc8212dae2392d18ad2206febbf6273cac6edb87dd5e7d5bf85644e4a"
   },
   "hash_note": "Hashes describe the published Git blobs (canonical line endings), not Windows working-copy line endings.",
@@ -25,9 +25,11 @@
   "presentation": "Constitution-led live prompts, verbatim encounter recording and personal choice. Jurisdictional requirements and current treatment retained as separate legal context. No automatic declaration that every demand is optional or any reported stop was lawful/unlawful.",
   "license_request_reply": "You have the right to remain silent and not be compelled to incriminate yourself. You can say: \u201cI am exercising my right to remain silent.\u201d The request you reported is in this timeline. You choose your next step.",
   "continuation_replies": {
+    "stop": "Your liberty and privacy remain protected. Potential constitutional conflict flagged for review. Your report is in this timeline. No violation determined. You choose your response. What exact reason did the officer give?",
+    "license": "You have the right to remain silent and not be compelled to incriminate yourself. Potential constitutional conflict flagged for review. The request you reported is in this timeline. No violation determined. You choose your response.",
     "silence": "You have the right to remain silent and not be compelled to incriminate yourself. Your statement is in this timeline. You choose what to say next.",
-    "window": "Your rights to silence and protection against unreasonable searches continue. The window order you reported is in this timeline. You choose your response. Johnny has not determined whether this order is lawful. Keep your hands visible.",
-    "exit": "Your rights to silence and protection against unreasonable seizures continue. The exit order you reported is in this timeline. You choose your response. Johnny has not determined whether this order is lawful. Avoid physical resistance.",
-    "both": "Your rights to silence and protection against unreasonable searches and seizures continue. Both orders you reported are in this timeline. You choose your response. Johnny has not determined whether these orders are lawful. Avoid physical resistance."
+    "window": "Your rights to silence and protection against unreasonable searches continue. Potential constitutional conflict flagged for review. The window order you reported is in this timeline. No violation determined. You choose your response. Keep your hands visible.",
+    "exit": "Your rights to silence and protection against unreasonable seizures continue. Potential constitutional conflict flagged for review. The exit order you reported is in this timeline. No violation determined. You choose your response. Avoid physical resistance.",
+    "both": "Your rights to silence and protection against unreasonable searches and seizures continue. Potential constitutional conflict flagged for review. Both orders you reported are in this timeline. No violation determined. You choose your response. Avoid physical resistance."
   }
 }
