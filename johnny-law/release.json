@@ -1,20 +1,20 @@
 {
   "app": "JOHNNY_LAW_V5_2",
-  "release": "short-license-rights-reply-20261118",
+  "release": "short-stop-rights-replies-20261118",
   "source_reviewed": "2026-11-17",
   "built_utc": "2026-11-18T00:35:37.434905+00:00",
   "public_url": "https://legitpdfufile-wq.github.io/nova-web/johnny-law/",
   "scope": "Traffic-stop education and device-local evidence tools. Federal baseline; limited official California traffic-stop summary. No comprehensive state procedure packs. ZIP suggests a state and requires confirmation.",
   "files": {
-    "index.html": "9e06237012f8be8e53ef85344ce85f9669d737cecbbd50ee4b8e499aff8cbd9a",
+    "index.html": "fb2ebaee7266bd2530ce1792a7412f9a66c777f9fef0ae8c943e55346f0beb3b",
     "style.css": "d9cfbe96e9f2883a0648cc76fea6386b71dbf760f931997303a5a0b56bc377e9",
-    "app.js": "36c1de9abc3bf68fd36d315d73a7234736c80e247c4ea9a6598c6dd397fdca12",
+    "app.js": "df1a680bd9563ed53eae2b00a9b2cb3ac3afab43809f7fae9e6606a38ea828b2",
     "traffic-rights.js": "2695f7ff4470107a3a3a646c192a04f3a5c093463a349ec5a330dec5e7359789",
     "evidence-store.js": "d96adee3ab8d6285a6659341248ac93f92ba0bda3674d13da7f5b0276d9fba1d",
     "zip-states.json": "b8d812a63ef91656d70853335c484478c5ed577f39c2a39901cb775e2190f461",
     "manifest.webmanifest": "bc14804ec3dd611ea18f884d8b2cffd0b065be798586a8169a3d770e11d18ed1",
     "johnny-law-icon.svg": "53536c93684908dc890128319a12b82deddcad6e862054b7ce595ae52959edf1",
-    "sw.js": "92b591382a5fcf082ef79ed75c58cb24a48cc462c57f536f4c1049746d50aa90",
+    "sw.js": "b49eff40b708bf42a6939383727983c0c065ce6e475f2732baf3a22914089849",
     "amendment-checklist.js": "07d6ef7bc8212dae2392d18ad2206febbf6273cac6edb87dd5e7d5bf85644e4a"
   },
   "hash_note": "Hashes describe the published Git blobs (canonical line endings), not Windows working-copy line endings.",
@@ -23,5 +23,11 @@
   "amendment_checklist": "27 topic checks over reported accounts, not independent legal reasoning or a determination of applicability. Brief summaries link to full primary text. No absent flag rules out a violation.",
   "explicit_amendment_references": "Numbers, ordinal names and Roman numerals are recognized as requests for topic review, not proof of a violation.",
   "presentation": "Constitution-led live prompts, verbatim encounter recording and personal choice. Jurisdictional requirements and current treatment retained as separate legal context. No automatic declaration that every demand is optional or any reported stop was lawful/unlawful.",
-  "license_request_reply": "You have the right to remain silent and not be compelled to incriminate yourself. You can say: \u201cI am exercising my right to remain silent.\u201d The request you reported is in this timeline. You choose your next step."
+  "license_request_reply": "You have the right to remain silent and not be compelled to incriminate yourself. You can say: \u201cI am exercising my right to remain silent.\u201d The request you reported is in this timeline. You choose your next step.",
+  "continuation_replies": {
+    "silence": "You have the right to remain silent and not be compelled to incriminate yourself. Your statement is in this timeline. You choose what to say next.",
+    "window": "Your rights to silence and protection against unreasonable searches continue. The window order you reported is in this timeline. You choose your response. Silence does not itself excuse a lawful order. Keep your hands visible.",
+    "exit": "Your rights to silence and protection against unreasonable seizures continue. The exit order you reported is in this timeline. You choose your response. Silence does not itself excuse a lawful order. Avoid physical resistance.",
+    "both": "Your rights to silence and protection against unreasonable searches and seizures continue. Both orders you reported are in this timeline. You choose your response. Silence does not itself excuse lawful orders. Avoid physical resistance."
+  }
 }
