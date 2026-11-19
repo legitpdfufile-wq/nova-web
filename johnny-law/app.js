@@ -137,7 +137,8 @@ function flagPotentialConflict(c,text){
  if(c.type!=="traffic"&&detect(text)!=="traffic")return;
  const t=text.toLowerCase();let event="";
  if(/(?:did not|didn't|never) (?:ask|order|tell)|no (?:window|exit|document) (?:request|order)/.test(t))return;
- if(/pulled (?:me )?over|traffic stop|stopped me|stopped for/.test(t))event="stop";
+ if(JohnnyTraffic.isForceReport(text))event="threat or force concern";
+ else if(/pulled (?:me )?over|traffic stop|stopped me|stopped for/.test(t))event="stop";
  else if(/(?:ask|demand|want|give|show|produce|see|request).*(?:license|licence|\bdl\b|documents|registration|insurance)|(?:license|\bdl\b).*request/.test(t))event="document request";
  else if(/\b(?:step|get|come) out\b/.test(t))event=/(?:roll|lower|open).*window|window.*down/.test(t)?"window and exit orders":"exit order";
  else if(/(?:roll|lower|open).*window|window.*down/.test(t))event="window order";

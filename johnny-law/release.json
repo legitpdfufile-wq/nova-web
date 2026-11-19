@@ -1,20 +1,20 @@
 {
   "app": "JOHNNY_LAW_V5_2",
-  "release": "potential-conflict-flags-20261119",
+  "release": "threat-and-force-concern-20261119",
   "source_reviewed": "2026-11-17",
   "built_utc": "2026-11-18T00:35:37.434905+00:00",
   "public_url": "https://legitpdfufile-wq.github.io/nova-web/johnny-law/",
   "scope": "Traffic-stop education and device-local evidence tools. Federal baseline; limited official California traffic-stop summary. No comprehensive state procedure packs. ZIP suggests a state and requires confirmation.",
   "files": {
-    "index.html": "e51def4399a6d3b7799ea4a283abfda5d7557674b9cf20261487a59f5bd2125a",
+    "index.html": "1e202025bb21bc265d7a965b9667128ea8386c83bee24bd420818006bfcb90a9",
     "style.css": "d9cfbe96e9f2883a0648cc76fea6386b71dbf760f931997303a5a0b56bc377e9",
-    "app.js": "9ba0dda07d674a959edde18168bae9c3068780ea507401202d03267f77312a3d",
-    "traffic-rights.js": "a66f5940959b29c0fb0ed3a27dcdcdbcab765adb55d98df08e5e323fabec69e6",
+    "app.js": "db16f3dc38fbfd60b592ac6fa9c745718a5b6a85d0c39473cead2a48400c64b5",
+    "traffic-rights.js": "84813f68a25d11a2a304d8fd63ef6fb9daf77129a282413b27fe4ee0471933f7",
     "evidence-store.js": "d96adee3ab8d6285a6659341248ac93f92ba0bda3674d13da7f5b0276d9fba1d",
     "zip-states.json": "b8d812a63ef91656d70853335c484478c5ed577f39c2a39901cb775e2190f461",
     "manifest.webmanifest": "bc14804ec3dd611ea18f884d8b2cffd0b065be798586a8169a3d770e11d18ed1",
     "johnny-law-icon.svg": "53536c93684908dc890128319a12b82deddcad6e862054b7ce595ae52959edf1",
-    "sw.js": "1f2362061081a8daa5bfcebc6f82c58bce1901533ebea6a7da1a4a692421a2b6",
+    "sw.js": "cbda3615d3c713ce5241996bb8b864ecc5e8ebf7ed275e7cc67e40c2fb8e21d9",
     "amendment-checklist.js": "07d6ef7bc8212dae2392d18ad2206febbf6273cac6edb87dd5e7d5bf85644e4a"
   },
   "hash_note": "Hashes describe the published Git blobs (canonical line endings), not Windows working-copy line endings.",
@@ -31,5 +31,6 @@
     "window": "Your rights to silence and protection against unreasonable searches continue. Potential constitutional conflict flagged for review. The window order you reported is in this timeline. No violation determined. You choose your response. Keep your hands visible.",
     "exit": "Your rights to silence and protection against unreasonable seizures continue. Potential constitutional conflict flagged for review. The exit order you reported is in this timeline. No violation determined. You choose your response. Avoid physical resistance.",
     "both": "Your rights to silence and protection against unreasonable searches and seizures continue. Potential constitutional conflict flagged for review. Both orders you reported are in this timeline. No violation determined. You choose your response. Avoid physical resistance."
-  }
+  },
+  "threat_reply": "Your rights to silence and protection against unreasonable force continue. Potential rights concern flagged for review. Your reported words are in this timeline. No violation determined. You choose your response. Keep your hands visible; avoid physical resistance."
 }
