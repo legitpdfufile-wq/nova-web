@@ -156,7 +156,7 @@ function restartContinuous(){if(continuousWanted&&!isSpeaking)setTimeout(()=>{tr
 function renderCases(){const box=$("#casesList");box.innerHTML="";if(!cases.length)box.innerHTML='<div class="card"><h3>No cases yet</h3><p>Say “Johnny, get my back” to begin.</p></div>';cases.forEach(c=>{const d=document.createElement("div");d.className="case-row";d.innerHTML=`<span>${ICONS[c.type]}</span><div><strong>${esc(c.title)}</strong><small>${esc(c.status)} • ${esc(c.state||"No state")} • ${esc(pretty(c.updated))}</small></div><button>Open</button>`;d.querySelector("button").onclick=()=>openCase(c.id);box.appendChild(d)});show("cases")}
 function openCase(id){activeId=id;save();const c=active();if(!c)return;refreshConstitutionChecklist(c);$("#caseHeading").textContent=c.title;$("#caseSub").textContent=`${c.status} • ${c.state||"No state"}`;$("#caseTitleInput").value=c.title;$("#caseOutcome").value=c.outcome||"";$("#factsView").textContent=buildReview(c);renderTimeline();renderRecordings();renderFiles();renderDates();showTab("summary");show("case")}
 function showTab(n){$$(".tabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===n));$$(".panel").forEach(p=>p.classList.toggle("active",p.id===`tab-${n}`))}
-function buildReview(c){const lines=["JOHNNY QUICK REVIEW","","Reported information:"];Object.entries(c.facts||{}).forEach(([k,v])=>lines.push(`• ${k}: ${v}`));lines.push("", "Points worth reviewing:");if(c.facts.searchInProgress&&c.facts.consentAsked===false)lines.push("⚠ Search began without a consent request documented.");if(c.facts.searchInProgress&&c.facts.reasonGiven===false)lines.push("⚠ No officer-stated reason was documented.");if(c.facts.arrested)lines.push("⚠ Handcuffs or arrest were reported; attorney review may be important.");(c.constitutionalConcerns||[]).forEach(r=>lines.push(`⚠ Constitutional issue for review: ${r.event}. Reported words: ${r.reportedWords}`));if(!lines.some(x=>x.startsWith("⚠")))lines.push("• No additional procedure issue is listed in the saved structured facts.");lines.push("", "General information:", "A search without consent is not automatically unlawful because other legal grounds may exist. Johnny does not determine legality. A licensed attorney can evaluate the complete facts and current law.", "", "Replay highlights:");(c.highlights||[]).forEach(h=>lines.push(`• ${Math.floor(h.offset/60)}:${String(Math.floor(h.offset%60)).padStart(2,"0")} — ${h.label}`));if(c.rightsReports?.length){lines.push("", "PERSON-REPORTED EVENTS AND RIGHTS CONCERNS — NOT LEGAL FINDINGS");c.rightsReports.forEach(r=>lines.push(`${r.time} — ${r.kind}\n${r.account}\nOfficer/agency: ${r.officer||"Not supplied"}`))}if(c.arrivalChecklist){lines.push("","OFFICER-ARRIVAL CHECKLIST");for(const q of arrivalQuestions()){const r=c.arrivalChecklist[q.key];lines.push(q.label+": "+(r?arrivalStatus(r.status):"Not recorded")+(r?.words?"\nReported: "+r.words:""))}}return lines.join("\n")}
+function buildReview(c){const lines=["JOHNNY QUICK REVIEW","","Reported information:"];Object.entries(c.facts||{}).forEach(([k,v])=>lines.push(`• ${k}: ${v}`));lines.push("", "Points worth reviewing:");if(c.facts.searchInProgress&&c.facts.consentAsked===false)lines.push("⚠ Search began without a consent request documented.");if(c.facts.searchInProgress&&c.facts.reasonGiven===false)lines.push("⚠ No officer-stated reason was documented.");if(c.facts.arrested)lines.push("⚠ Handcuffs or arrest were reported; attorney review may be important.");(c.constitutionalConcerns||[]).forEach(r=>lines.push(`⚠ Constitutional issue for review: ${r.event}. Reported words: ${r.reportedWords}${r.objection?"\nYour objection: "+r.objection:""}`));if(!lines.some(x=>x.startsWith("⚠")))lines.push("• No additional procedure issue is listed in the saved structured facts.");lines.push("", "General information:", "A search without consent is not automatically unlawful because other legal grounds may exist. Johnny does not determine legality. A licensed attorney can evaluate the complete facts and current law.", "", "Replay highlights:");(c.highlights||[]).forEach(h=>lines.push(`• ${Math.floor(h.offset/60)}:${String(Math.floor(h.offset%60)).padStart(2,"0")} — ${h.label}`));if(c.rightsReports?.length){lines.push("", "PERSON-REPORTED EVENTS AND RIGHTS CONCERNS — NOT LEGAL FINDINGS");c.rightsReports.forEach(r=>lines.push(`${r.time} — ${r.kind}\n${r.account}\nOfficer/agency: ${r.officer||"Not supplied"}`))}if(c.arrivalChecklist){lines.push("","OFFICER-ARRIVAL CHECKLIST");for(const q of arrivalQuestions()){const r=c.arrivalChecklist[q.key];lines.push(q.label+": "+(r?arrivalStatus(r.status):"Not recorded")+(r?.words?"\nReported: "+r.words:"")+(r?.objection?"\nYour objection: "+r.objection:""))}}return lines.join("\n")}
 function renderTimeline(){const c=active();$("#timelineText").value=`JOHNNY LAW CASE SUMMARY\n\nCase: ${c.title}\nStatus: ${c.status}\nState: ${c.state||"Not set"}\nStarted: ${pretty(c.created)}\n\nTIMELINE\n${c.timeline.map(x=>`[${pretty(x.time)}] ${x.who}: ${x.text}`).join("\n\n")}\n\nOUTCOME\n${c.outcome||""}\n\n${window.JohnnyConstitution?.text(c)||"Constitutional checklist unavailable. Reopen online to load the update; original timeline remains above."}`}
 function download(name,data,type="text/plain"){const b=new Blob([data],{type}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function safe(s){return s.replace(/[^\w-]+/g,"_")||"Johnny_Law"}
@@ -252,7 +252,7 @@ function refreshArrivalChecklist(c){
   row.dataset.arrival=q.key;title.textContent=q.label;prompt.textContent=q.question;
   status.textContent=item?arrivalStatus(item.status):"Not recorded";
   if(item?.words){const words=document.createElement("p");words.className="arrival-reported";words.textContent="Reported: "+item.words;row.append(title,prompt,status,words)}else row.append(title,prompt,status);
-  button.type="button";button.textContent="Record response";button.onclick=()=>openArrivalAnswer(q.key);row.append(button);box.append(row);
+  if(item?.objection){const objection=document.createElement("p");objection.className="arrival-reported";objection.textContent="Your objection: "+item.objection;row.append(objection)}button.type="button";button.textContent="Record response";button.onclick=()=>openArrivalAnswer(q.key);row.append(button);box.append(row);
  }
 }
 function arrivalStatus(status){return {answered:"Answer reported",unanswered:"No answer reported",refused:"Declined to answer (reported)",notasked:"Not asked / skipped"}[status]||"Not recorded"}
@@ -260,7 +260,7 @@ function openArrivalAnswer(key){
  const c=active(),q=arrivalQuestions().find(x=>x.key===key);if(!c||!q)return;
  arrivalKey=key;arrivalReturnFocus=document.activeElement;
  $("#arrivalAnswerTitle").textContent=q.label;$("#arrivalQuestion").textContent=q.question;
- $("#arrivalAnswerStatus").value="answered";$("#arrivalAnswerWords").value="";$("#arrivalFeedback").textContent="";
+ $("#arrivalAnswerStatus").value="answered";$("#arrivalAnswerWords").value="";$("#arrivalAnswerObjection").value="";$("#arrivalFeedback").textContent="";
  $("#arrivalAnswerModal").classList.remove("hidden");$("#arrivalAnswerWords").focus();
 }
 function closeArrivalAnswer(){
@@ -271,10 +271,16 @@ function saveArrivalAnswer(e){
  e.preventDefault();const c=active(),q=arrivalQuestions().find(x=>x.key===arrivalKey);if(!c||!q)return;
  const words=$("#arrivalAnswerWords").value,status=$("#arrivalAnswerStatus").value;
  if(status==="answered"&&!words.trim()){$("#arrivalFeedback").textContent="Enter the words reported before marking an answer.";return}
- const report={key:q.key,question:q.question,status,words,time:stamp()};
+ const objection=$("#arrivalAnswerObjection").value;const previous=c.arrivalChecklist?.[q.key];const unchanged=previous?.words===words&&previous?.objection===objection&&previous?.status===status;const report={key:q.key,question:q.question,status,words,objection,time:stamp()};
  (c.arrivalChecklist||={})[q.key]=report;(c.arrivalChecklistHistory||=[]).push(report);
  addTimeline(c,"System",`Officer-arrival checklist: ${q.question}\n${arrivalStatus(status)}${words?"\nReported words (verbatim):\n"+words:""}`,"arrival-checklist");
  if(words.trim())addTimeline(c,"User",words,"checklist-answer");
+ if(objection.trim()){
+  addTimeline(c,"User",objection,"checklist-objection");
+  (c.constitutionalConcerns||=[]).push({time:report.time,event:"person's objection to "+q.label.toLowerCase(),reportedWords:words,objection,status:"person-reported objection; review suggested; not a finding of violation",amendments:[4]});
+  addTimeline(c,"System",`Person-reported objection to ${q.label}. Officer's reported words: ${words}\nPerson's exact objection: ${objection}`,"constitutional-concern");
+ }
+
  if(q.key==="custody"&&status==="answered"&&/not free to (?:go|leave)|(?:are|being|you.re) detained/i.test(words)){setFact(c,"detained",true);setStage(c,"detained","Continued detention reported")}
  const unresolved=(status==="unanswered"||status==="refused")&&q.key!=="identity";
  if(unresolved){
@@ -286,7 +292,7 @@ function saveArrivalAnswer(e){
  if(unresolved){
   const offered=(c.arrivalFollowups||={})[q.key];c.arrivalFollowups[q.key]=true;save();
   msg(offered?"The repeated unanswered request is logged. Silence is not permission to leave.":q.key==="custody"?"No detention-status answer reported. You can ask once: “Am I being detained, or am I free to leave?” Silence is not permission to leave.":"No explanation reported. Fourth Amendment: justification and duration require review. You can ask once: “Please state the reason for continuing to detain me.” Silence is not permission to leave.");
- }else toast(status==="notasked"?"Marked as not asked. Continue when you choose.":"Checklist response recorded.");
+ }else if(status==="answered"&&(q.key==="basis"||q.key==="continuedBasis")&&!unchanged){msg("The officer’s stated reason"+(objection.trim()?" and your objection are":" is")+" recorded. Your Fourth Amendment protection against unreasonable detention remains. A statute citation alone does not settle whether this stop respected your rights.")}else toast(status==="notasked"?"Marked as not asked. Continue when you choose.":"Checklist response recorded.");
 }
 function arrivalChat(c,text){
  if(c.type!=="traffic")return null;const t=text.toLowerCase();

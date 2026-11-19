@@ -16,7 +16,7 @@
 <meta name="description" content="Johnny Law helps organize encounters, recordings, notes, and case timelines. General legal information only; not legal representation or emergency service.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="johnny-law-icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=arrival-checklist-20261119">
+<link rel="stylesheet" href="style.css?v=reason-objection-20261119">
 </head>
 <body>
 <div id="fatal" class="fatal hidden">
@@ -177,7 +177,7 @@
 </main>
 </div>
 
-<div id="arrivalAnswerModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="arrivalAnswerTitle"><div class="modal-card"><h2 id="arrivalAnswerTitle">Checklist response</h2><p id="arrivalQuestion"></p><form id="arrivalAnswerForm"><label for="arrivalAnswerStatus">What happened?</label><select id="arrivalAnswerStatus"><option value="answered">Answer reported</option><option value="unanswered">No answer reported</option><option value="refused">Declined to answer (reported)</option><option value="notasked">Not asked / skipped</option></select><label for="arrivalAnswerWords">Exact words or observations, as reported</label><textarea id="arrivalAnswerWords" rows="4" maxlength="3000"></textarea><p id="arrivalFeedback" role="status"></p><button class="primary wide" type="submit">Save response</button><button id="cancelArrivalAnswer" class="wide" type="button">Cancel</button></form></div></div><div id="rightsReportModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="rightsReportTitle"><div class="modal-card"><h2 id="rightsReportTitle">Preserve your account</h2><p>Your account is recorded verbatim with device time and a timeline marker. A recorded allegation is not a legal finding. Recording audio remains a separate, optional control.</p><form id="rightsReportForm"><label for="rightsReportKind">Event or protection involved</label><select id="rightsReportKind"><option>Encounter event / request or statement</option><option>Fourth Amendment — stop, search or seizure</option><option>Fifth Amendment — compelled self-incrimination</option><option>Unreasonable force</option><option>Due process or equal protection</option><option>Other rights concern</option></select><label for="rightsReportWords">What happened? Include exact words; identify uncertain details.</label><textarea id="rightsReportWords" rows="6" maxlength="3000" required></textarea><label for="rightsReportOfficer">Agency / officer / badge, if known (optional)</label><input id="rightsReportOfficer" maxlength="200"><p id="rightsReportFeedback" role="status"></p><button id="saveRightsReport" class="primary wide" type="submit">Save my report and mark timeline</button><button id="cancelRightsReport" class="wide" type="button">Cancel</button></form></div></div>
+<div id="arrivalAnswerModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="arrivalAnswerTitle"><div class="modal-card"><h2 id="arrivalAnswerTitle">Checklist response</h2><p id="arrivalQuestion"></p><form id="arrivalAnswerForm"><label for="arrivalAnswerStatus">What happened?</label><select id="arrivalAnswerStatus"><option value="answered">Answer reported</option><option value="unanswered">No answer reported</option><option value="refused">Declined to answer (reported)</option><option value="notasked">Not asked / skipped</option></select><label for="arrivalAnswerWords">Exact words or observations, as reported</label><textarea id="arrivalAnswerWords" rows="4" maxlength="3000"></textarea><label for="arrivalAnswerObjection">Your objection, in your exact words (optional)</label><textarea id="arrivalAnswerObjection" rows="3" maxlength="3000"></textarea><p id="arrivalFeedback" role="status"></p><button class="primary wide" type="submit">Save response</button><button id="cancelArrivalAnswer" class="wide" type="button">Cancel</button></form></div></div><div id="rightsReportModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="rightsReportTitle"><div class="modal-card"><h2 id="rightsReportTitle">Preserve your account</h2><p>Your account is recorded verbatim with device time and a timeline marker. A recorded allegation is not a legal finding. Recording audio remains a separate, optional control.</p><form id="rightsReportForm"><label for="rightsReportKind">Event or protection involved</label><select id="rightsReportKind"><option>Encounter event / request or statement</option><option>Fourth Amendment — stop, search or seizure</option><option>Fifth Amendment — compelled self-incrimination</option><option>Unreasonable force</option><option>Due process or equal protection</option><option>Other rights concern</option></select><label for="rightsReportWords">What happened? Include exact words; identify uncertain details.</label><textarea id="rightsReportWords" rows="6" maxlength="3000" required></textarea><label for="rightsReportOfficer">Agency / officer / badge, if known (optional)</label><input id="rightsReportOfficer" maxlength="200"><p id="rightsReportFeedback" role="status"></p><button id="saveRightsReport" class="primary wide" type="submit">Save my report and mark timeline</button><button id="cancelRightsReport" class="wide" type="button">Cancel</button></form></div></div>
 <div id="settings" class="modal hidden">
   <div class="modal-card">
     <h2>Settings</h2>
@@ -192,9 +192,9 @@
   </div>
 </div>
 
-<script src="amendment-checklist.js?v=arrival-checklist-20261119"></script>
-<script src="traffic-rights.js?v=arrival-checklist-20261119"></script>
+<script src="amendment-checklist.js?v=reason-objection-20261119"></script>
+<script src="traffic-rights.js?v=reason-objection-20261119"></script>
 <script src="evidence-store.js"></script>
-<script src="app.js?v=arrival-checklist-20261119"></script>
+<script src="app.js?v=reason-objection-20261119"></script>
 </body>
 </html>
