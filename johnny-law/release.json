@@ -1,25 +1,26 @@
 {
   "app": "JOHNNY_LAW_V5_2",
-  "release": "all-amendment-topic-checklist-20261118",
+  "release": "constitutional-rights-and-choice-flow-20261118",
   "source_reviewed": "2026-11-17",
   "built_utc": "2026-11-18T00:35:37.434905+00:00",
   "public_url": "https://legitpdfufile-wq.github.io/nova-web/johnny-law/",
   "scope": "Traffic-stop education and device-local evidence tools. Federal baseline; limited official California traffic-stop summary. No comprehensive state procedure packs. ZIP suggests a state and requires confirmation.",
   "files": {
-    "index.html": "3bd9a7616075eed01fd24e9fcdc6cb8305ac148aa3e4f3801d2347ff1af1777a",
-    "style.css": "bd116e49e89fde36432253671778dc8164f8bcd3362a357f3399e289453a3c87",
-    "app.js": "8bfc4fed522886ecd2b29718f3cfa11596e7a8ad267f2cce8bad534b1175c37d",
-    "traffic-rights.js": "a691750ddc54ff2b3255df017333aee6162685cc2e405bac4b8825ac2d447da1",
+    "index.html": "e1661b5e6288455236d726f5d6615d085937a5abbcd574f8208649e50844c98a",
+    "style.css": "d9cfbe96e9f2883a0648cc76fea6386b71dbf760f931997303a5a0b56bc377e9",
+    "app.js": "36c1de9abc3bf68fd36d315d73a7234736c80e247c4ea9a6598c6dd397fdca12",
+    "traffic-rights.js": "f5f8fe36c630ccc7fc636c33a515294f042477b27c79fb5c9e2ea59c7f15bcfe",
     "evidence-store.js": "d96adee3ab8d6285a6659341248ac93f92ba0bda3674d13da7f5b0276d9fba1d",
     "zip-states.json": "b8d812a63ef91656d70853335c484478c5ed577f39c2a39901cb775e2190f461",
     "manifest.webmanifest": "bc14804ec3dd611ea18f884d8b2cffd0b065be798586a8169a3d770e11d18ed1",
     "johnny-law-icon.svg": "53536c93684908dc890128319a12b82deddcad6e862054b7ce595ae52959edf1",
-    "sw.js": "dba8e3e6d3cdc00fdb340a5ca035a65eb51cc8c125edb98756da189d3342e524",
+    "sw.js": "9bebefcb1b3d7d64bb1055979b994064b1170a52aef409dd0a61316cbba3ca07",
     "amendment-checklist.js": "07d6ef7bc8212dae2392d18ad2206febbf6273cac6edb87dd5e7d5bf85644e4a"
   },
   "hash_note": "Hashes describe the published Git blobs (canonical line endings), not Windows working-copy line endings.",
   "constitutional_text_reviewed": "2026-11-18",
   "rights_report_logging": "Verbatim person-reported rights violations, device timestamps, timeline markers and export. Reports are not automatic legal findings.",
   "amendment_checklist": "27 topic checks over reported accounts, not independent legal reasoning or a determination of applicability. Brief summaries link to full primary text. No absent flag rules out a violation.",
-  "explicit_amendment_references": "Numbers, ordinal names and Roman numerals are recognized as requests for topic review, not proof of a violation."
+  "explicit_amendment_references": "Numbers, ordinal names and Roman numerals are recognized as requests for topic review, not proof of a violation.",
+  "presentation": "Constitution-led live prompts, verbatim encounter recording and personal choice. Jurisdictional requirements and current treatment retained as separate legal context. No automatic declaration that every demand is optional or any reported stop was lawful/unlawful."
 }
