@@ -16,3 +16,5 @@
 #constitutionPanel{margin:12px}#constitutionPanel summary{font-weight:700;color:var(--gold);cursor:pointer}.amendment-row{padding:12px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.amendment-row p{margin:6px 0;font-size:13px}.amendment-status{color:var(--gold)}#rightsReportOfficer{background:#0c141c;color:var(--text)}
 
 .choice-note{margin:12px;padding:12px;border-left:3px solid var(--gold);font-size:13px;color:var(--muted);overflow-wrap:anywhere}.choice-note a{color:var(--gold)}
+
+#arrivalChecklist{margin:12px}#arrivalSummary{font-weight:700;color:var(--gold);cursor:pointer}#arrivalItems{padding-left:22px}#arrivalItems li{padding:12px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}#arrivalItems p{margin:6px 0;font-size:14px}#arrivalItems small{display:block;color:var(--gold);margin-bottom:8px}.arrival-reported{white-space:pre-wrap;color:var(--muted)}#arrivalAnswerWords{width:100%;padding:12px;background:#0c141c;color:var(--text);border:1px solid var(--line);border-radius:11px}#arrivalFeedback{color:var(--gold)}

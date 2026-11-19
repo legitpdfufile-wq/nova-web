@@ -1,20 +1,20 @@
 {
   "app": "JOHNNY_LAW_V5_2",
-  "release": "concise-contextual-flow-20261119",
+  "release": "officer-arrival-checklist-20261119",
   "source_reviewed": "2026-11-17",
   "built_utc": "2026-11-18T00:35:37.434905+00:00",
   "public_url": "https://legitpdfufile-wq.github.io/nova-web/johnny-law/",
   "scope": "Traffic-stop education and device-local evidence tools. Federal baseline; limited official California traffic-stop summary. No comprehensive state procedure packs. ZIP suggests a state and requires confirmation.",
   "files": {
-    "index.html": "0330edc80b19eabd03fd7f4782ecd4805e719500b5874e7a60a273aa28eac4e2",
-    "style.css": "d9cfbe96e9f2883a0648cc76fea6386b71dbf760f931997303a5a0b56bc377e9",
-    "app.js": "4d223f41e364beb7f188f99b99fb30edd5f0e7a576e23bbe191e05e9d098892d",
+    "index.html": "a66789f74485ab97a7d9d49faef23758d6a3fe3be3784a2650251a14473ea587",
+    "style.css": "4b2a336934b3599b9748d01c9401ed7cb845982092901675fd610ee208369faf",
+    "app.js": "93e273f0cbad39e8a814eb13e2ecd751e54892eaa067ac5da2777ea415bbbbbf",
     "traffic-rights.js": "7e92cb62a12793790abe120462f3e99a75961f4c9930cf02399dee7155478ffa",
     "evidence-store.js": "d96adee3ab8d6285a6659341248ac93f92ba0bda3674d13da7f5b0276d9fba1d",
     "zip-states.json": "b8d812a63ef91656d70853335c484478c5ed577f39c2a39901cb775e2190f461",
     "manifest.webmanifest": "bc14804ec3dd611ea18f884d8b2cffd0b065be798586a8169a3d770e11d18ed1",
     "johnny-law-icon.svg": "53536c93684908dc890128319a12b82deddcad6e862054b7ce595ae52959edf1",
-    "sw.js": "e2d54e7494a72d204de7d4a1e2a2fb42b714aec8653513a5883fd31610c61c71",
+    "sw.js": "69faa43d6169a27ae9e382d3f3009ed7e64ea8b08131615b233ee186e650f0c1",
     "amendment-checklist.js": "13d63bd27dceea426e687b40a56d283f425bd7a95b33d9de0a17115fd74bf254"
   },
   "hash_note": "Hashes describe the published Git blobs (canonical line endings), not Windows working-copy line endings.",
@@ -23,7 +23,7 @@
   "amendment_checklist": "27 topic checks over reported accounts, not independent legal reasoning or a determination of applicability. Brief summaries link to full primary text. No absent flag rules out a violation.",
   "explicit_amendment_references": "Numbers, ordinal names and Roman numerals are recognized as requests for topic review, not proof of a violation.",
   "presentation": "Constitution-led live prompts, verbatim encounter recording and personal choice. Jurisdictional requirements and current treatment retained as separate legal context. No automatic declaration that every demand is optional or any reported stop was lawful/unlawful.",
-  "license_request_reply": "You have the right to remain silent and not be compelled to incriminate yourself. You can say: \u201cI am exercising my right to remain silent.\u201d The request you reported is in this timeline. You choose your next step.",
+  "license_request_reply": "Fifth Amendment: you may decline investigative questions and avoid compelled self-incrimination. You can say, \u201cI am exercising my right to remain silent.\u201d The document request is in your timeline.",
   "continuation_replies": {
     "stop": "Stop reported. Fourth Amendment: protection against unreasonable detention. Your account and a review flag are in the timeline.",
     "license": "Fifth Amendment: you may decline investigative questions and avoid compelled self-incrimination. You can say, \u201cI am exercising my right to remain silent.\u201d The document request is in your timeline.",
@@ -32,5 +32,11 @@
     "exit": "The exit order is logged. Your constitutional protections continue. Avoid physical resistance.",
     "both": "Both orders are logged. Your constitutional protections continue. Keep your hands visible and avoid physical resistance."
   },
-  "threat_reply": "Fourth Amendment issue: threatened force and property damage. A traffic violation alone does not justify excessive force. Keep your hands visible; avoid physical resistance."
+  "threat_reply": "Fourth Amendment issue: threatened force and property damage. A traffic violation alone does not justify excessive force. Keep your hands visible; avoid physical resistance.",
+  "arrival_checklist": [
+    "Stop reason and investigated offense",
+    "Officer name, badge and agency",
+    "Detained or free to leave",
+    "Specific basis for continued detention"
+  ]
 }
