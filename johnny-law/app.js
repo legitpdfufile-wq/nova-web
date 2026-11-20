@@ -294,6 +294,26 @@ function saveArrivalAnswer(e){
   msg(offered?"The repeated unanswered request is logged. Silence is not permission to leave.":q.key==="custody"?"No detention-status answer reported. You can ask once: “Am I being detained, or am I free to leave?” Silence is not permission to leave.":"No explanation reported. Fourth Amendment: justification and duration require review. You can ask once: “Please state the reason for continuing to detain me.” Silence is not permission to leave.");
  }else if(status==="answered"&&(q.key==="basis"||q.key==="continuedBasis")&&!unchanged){msg("The officer’s stated reason"+(objection.trim()?" and your objection are":" is")+" recorded. Your Fourth Amendment protection against unreasonable detention remains. A statute citation alone does not settle whether this stop respected your rights.")}else toast(status==="notasked"?"Marked as not asked. Continue when you choose.":"Checklist response recorded.");
 }
+function recordSilencePressure(c,text,invocation){
+ const t=text.toLowerCase();
+ if(/(?:did not|didn't|never|not) (?:say|threaten|call|label)|not (?:a )?failure to comply|not noncompliance/.test(t))return null;
+ const silence=/silence|silent|not answering|refus\w*.*answer/.test(t);
+ const noncompliance=silence&&/failure to comply|non.?compliance|not complying/.test(t);
+ const charges=/(?:more|extra|additional|add|adding).{0,25}(?:charges?|counts?|prosecut)|(?:charge|prosecut).*(?:unless|if|silent|silence)/.test(t);
+ if(!noncompliance&&!charges)return null;
+ const answers=/answer|questions?|silence|silent/.test(t);
+ const kind=noncompliance&&charges?"silence labelled noncompliance and charges threatened":noncompliance?"silence labelled noncompliance":answers?"charges threatened to obtain answers":"charge threat after counsel request; condition unspecified";
+ const prior=(c.silencePressureReports||[]).some(r=>r.invocationId===invocation.id&&r.kind===kind);
+ const report={time:stamp(),invocationId:invocation.id,reportedWords:text,kind,status:"reported pressure following counsel request; review suggested; not a finding of violation"};
+ (c.silencePressureReports||=[]).push(report);
+ (c.constitutionalConcerns||=[]).push({time:report.time,event:kind,reportedWords:text,invocationId:invocation.id,status:report.status,amendments:charges?[5,14]:[5]});
+ addTimeline(c,"System",`Rights concern: ${kind}. Earlier reported lawyer request: ${invocation.reportedWords}\nLater reported statement: ${text}`,"post-invocation-pressure");save();
+ if(JohnnyTraffic.isForceReport(text))return null;
+ if(prior)return "Further pressure to answer is logged against the same lawyer request. You can maintain your silence.";
+ if(charges)return answers?"Fifth Amendment and due process concern: threatened charges to pressure you into answering. The exact threat is linked to your lawyer request. You can maintain your silence; do not physically resist.":"Threatened charges are logged after your lawyer request. What exact words connected the threatened charges to your silence or answers?";
+ return "Fifth Amendment concern: your reported silence is being treated as noncompliance. I linked that statement to your lawyer request. Silence about investigative questions is distinct from physical orders or document demands.";
+}
+
 function counselFollowup(c,text){
  if(c.type!=="traffic")return null;const t=text.toLowerCase(),custody=!c.facts.released&&!!(c.facts.arrested||c.facts.handcuffed||c.facts.transporting||c.facts.booking);
  const pending=(c.rightsInvocations||[]).find(r=>r.id===c.awaitingCounselConfirmation);
@@ -314,7 +334,7 @@ function counselFollowup(c,text){
   return communicated?(silence?"Your lawyer request and decision to remain silent are logged as reported to the officer. You can maintain your silence.":"Your lawyer request is logged as reported to the officer. You can decline investigative questions."):"Your lawyer request is logged. Did you clearly tell the officer?";
  }
  const invocation=(c.rightsInvocations||[]).find(r=>r.id===c.activeCounselInvocationId);
- if(!custody||!invocation||!invocation.communicatedToOfficerReported||JohnnyTraffic.isForceReport(text))return null;
+ if(!custody||!invocation||!invocation.communicatedToOfficerReported)return null;const pressureReply=recordSilencePressure(c,text,invocation);if(pressureReply)return pressureReply;if(JohnnyTraffic.isForceReport(text))return null;
  const questioning=/questioning me|keeps asking|continues? (?:asking|questioning)|(?:officer|cop|police|they|he|she).*(?:asks?\b|question)/.test(t);
  if(!questioning)return null;
  const booking=/what is your (?:full )?(?:name|date of birth|address)|state your (?:full )?(?:name|date of birth|address)/.test(t);

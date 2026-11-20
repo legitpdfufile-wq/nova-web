@@ -4,7 +4,8 @@ window.JohnnyTraffic=(()=>{
  function isForceReport(text){
   const t=text.toLowerCase();
   if(/(?:did not|didn't|never|not) (?:threaten|touch|grab|drag|pull|break)|no threats?/.test(t))return false;
-  return /touch|grab|drag|threaten|break.*window|window.*break|\bpull(?:s|ed|ing)?\s+(?:me|you|him|her|them)\s+out\b|assault|excessive force|hurt me/.test(t);
+  const physical=/touch|grab|drag|break.*window|window.*break|\bpull(?:s|ed|ing)?\s+(?:me|you|him|her|them)\s+out\b|assault|excessive force|hurt me/.test(t);
+  return physical||(/threaten/.test(t)&&!/(?:charges?|prosecut)/.test(t));
  }
  function reply(location,text,context={}){
   const t=text.toLowerCase();
