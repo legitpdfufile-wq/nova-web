@@ -9,7 +9,7 @@ window.JohnnyTraffic=(()=>{
  }
  function reply(location,text,context={}){
   const t=text.toLowerCase();
-  if(isForceReport(text))return "Fourth Amendment issue: threatened force and property damage. A traffic violation alone does not justify excessive force. Keep your hands visible; avoid physical resistance.";
+  if(isForceReport(text))return "Safety alert: force or a threat was reported. Fourth Amendment: protection against unreasonable force. You can request a supervisor. Keep your hands visible; avoid physical resistance.";
   if(/(?:was|is|were).*(?:lawful|legal)|lawful based|constitutional.*(?:stop|interaction)|was.*rights.*violat/.test(t))return 'This account raises Fourth Amendment questions about detention and Fifth Amendment questions about questioning in custody. To assess it, I need the original stop reason and whether you requested silence or a lawyer.';
   if(/they are questioning me|being questioned|questioning me|asked questions/.test(t))return context.facts?.arrested||context.facts?.handcuffed||context.facts?.transporting||context.facts?.booking?'Questioning in custody: you can say, “I am exercising my right to remain silent. I want a lawyer before questioning.” What did they ask?':'Fifth Amendment: you can decline investigative questions. If you choose, say, “I am exercising my right to remain silent.” What did they ask?';
   if(/detained.*(?:not showing|no|refus).*id|detained for not showing id/.test(t))return 'I logged the stated detention reason: not showing ID. Fourth Amendment: the basis and duration of detention require review.';

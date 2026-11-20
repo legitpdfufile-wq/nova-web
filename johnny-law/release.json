@@ -1,20 +1,20 @@
 {
   "app": "JOHNNY_LAW_V5_2",
-  "release": "silence-and-threatened-charge-pressure-20261119",
+  "release": "clear-rights-alerts-and-supervisor-prompts-20261119",
   "source_reviewed": "2026-11-17",
   "built_utc": "2026-11-18T00:35:37.434905+00:00",
   "public_url": "https://legitpdfufile-wq.github.io/nova-web/johnny-law/",
   "scope": "Traffic-stop education and device-local evidence tools. Federal baseline; limited official California traffic-stop summary. No comprehensive state procedure packs. ZIP suggests a state and requires confirmation.",
   "files": {
-    "index.html": "d861ae2f22b4c68eb5dbb9816945460c9a069a064a432565e367ec2fe3ce390c",
-    "style.css": "9bf991ccca8536e8a53e86a10885b2bb30a03dafc2a0b59f50ef6c3d5ab24ab5",
-    "app.js": "720135d56feb64a39d2e7b09ba47c0d1d8ed964a96770592ca938d8191ee6a1e",
-    "traffic-rights.js": "f9e62cdceb884333010f84e275e216e0ef840145ed3f6d855c14a91fc6a6e2e8",
+    "index.html": "ab6da3e9280e490ceed2ef29695fab2d227d0452235d4c56924e402534bc48c8",
+    "style.css": "f3a83f264161222e7f03140d9c6ccf51249c4c75cd9e43d8b8fa4571cb1afc5d",
+    "app.js": "d63ed036a412b39ac0a80a5132547af71712bf9cbbc08fdf7e3f3f00697fab4f",
+    "traffic-rights.js": "fcf32ad367fec49cc20600f24c08590458cfae1f822325209f5d717a5e566eb5",
     "evidence-store.js": "d96adee3ab8d6285a6659341248ac93f92ba0bda3674d13da7f5b0276d9fba1d",
     "zip-states.json": "b8d812a63ef91656d70853335c484478c5ed577f39c2a39901cb775e2190f461",
     "manifest.webmanifest": "bc14804ec3dd611ea18f884d8b2cffd0b065be798586a8169a3d770e11d18ed1",
     "johnny-law-icon.svg": "53536c93684908dc890128319a12b82deddcad6e862054b7ce595ae52959edf1",
-    "sw.js": "c89e10d051adab4263b21fb3458cdc0bb8f6c46f79962a0e2649816bca195a56",
+    "sw.js": "6c82b2e7f590424676a86a2ffbef23948a741109bfcdee4a51c094c32e37130a",
     "amendment-checklist.js": "13d63bd27dceea426e687b40a56d283f425bd7a95b33d9de0a17115fd74bf254"
   },
   "hash_note": "Hashes describe the published Git blobs (canonical line endings), not Windows working-copy line endings.",
@@ -32,7 +32,7 @@
     "exit": "The exit order is logged. Your constitutional protections continue. Avoid physical resistance.",
     "both": "Both orders are logged. Your constitutional protections continue. Keep your hands visible and avoid physical resistance."
   },
-  "threat_reply": "Fourth Amendment issue: threatened force and property damage. A traffic violation alone does not justify excessive force. Keep your hands visible; avoid physical resistance.",
+  "threat_reply": "Safety alert: force or a threat was reported. Fourth Amendment: protection against unreasonable force. You can request a supervisor. Keep your hands visible; avoid physical resistance.",
   "arrival_checklist": [
     "Stop reason and investigated offense",
     "Officer name, badge and agency",
