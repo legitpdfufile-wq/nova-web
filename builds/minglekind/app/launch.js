@@ -1,1 +1,7 @@
-(()=>{'use strict';const enter=document.getElementById('enter'),status=document.getElementById('status'),refresh=document.getElementById('refresh');let working=false;async function resolve(){if(working)return;working=true;refresh.disabled=true;const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);try{const r=await fetch('https://legitpdfufile-wq.github.io/nova-web/',{cache:'no-store',signal:controller.signal});if(!r.ok)throw Error('The maintained directory is unavailable.');const dom=new DOMParser().parseFromString(await r.text(),'text/html');const link=[...dom.querySelectorAll('a[href]')].find(a=>/minglekind/i.test(a.textContent));if(!link)throw Error('No current app link is published.');const u=new URL(link.getAttribute('href'));if(u.protocol!=='https:'||u.username||u.password||!(/^[a-z0-9-]+\.trycloudflare\.com$/.test(u.hostname)))throw Error('The app address could not be verified.');enter.href=u.origin+'/preview';status.textContent='Current independent app link loaded. Open MingleKind above.';if(navigator.standalone===true||matchMedia('(display-mode: standalone)').matches)location.replace(enter.href);}catch(e){status.textContent=e.message+' Use Open MingleKind for the maintained entrance, or refresh.';}finally{clearTimeout(timer);working=false;refresh.disabled=false}}refresh.addEventListener('click',resolve);resolve();})();
+(() => {
+  "use strict";
+  if (navigator.standalone === true || matchMedia("(display-mode: standalone)").matches) {
+    const entrance = document.getElementById("enter");
+    if (entrance) location.replace(entrance.href);
+  }
+})();
